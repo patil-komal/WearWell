@@ -52,7 +52,7 @@
                 <ul class="flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-lg md:font-medium lg:text-[25px]">
                     <li>
                         <a href="home.php"
-                            class="md:bg-transparent text-gray-700 block pl-3 pr-4 py-2 md:text-blue-700 md:p-0 rounded"
+                            class="md:bg-transparent text-gray-700 block pl-3 pr-4 py-2  md:p-0 rounded md:hover:text-blue-700"
                             aria-current="page">Home</a>
                     </li>
                     <li>
@@ -141,38 +141,38 @@
         <nav class="header-links contents font-semibold text-base lg:text-xl ">
             <ul class="flex  justify-around items-center ml-4 xl:ml-8 mr-auto  ">
                 <li class="p-3 xl:p-6 active hover:text-cyan-500 hover:underline" data-dropdown-toggle="WomenEthnic"
-                    data-dropdown-trigger="hover">
-                    <a href="">
+                    data-dropdown-trigger="click">
+                    <a href="#">
                         <span>Women Ethnic</span>
                     </a>
                 </li>
                 <li class="p-3 xl:p-6  hover:text-cyan-500 hover:underline" data-dropdown-toggle="WomenWestern"
-                    data-dropdown-trigger="hover">
-                    <a href="">
+                    data-dropdown-trigger="click">
+                    <a href="#">
                         <span>Women Western</span>
                     </a>
                 </li>
                 <li class="p-3 xl:p-6 hover:text-cyan-500 hover:underline" data-dropdown-toggle="Men"
-                    data-dropdown-trigger="hover">
-                    <a href="">
+                    data-dropdown-trigger="click">
+                    <a href="#">
                         <span>Men</span>
                     </a>
                 </li>
                 <li class="p-3 xl:p-6 hover:text-cyan-500 hover:underline" data-dropdown-toggle="Kids"
-                    data-dropdown-trigger="hover">
-                    <a href="">
+                    data-dropdown-trigger="click">
+                    <a href="#">
                         <span>Kids</span>
                     </a>
                 </li>
                 <li class="p-3 xl:p-6 hover:text-cyan-500 hover:underline" data-dropdown-toggle="Watch"
-                    data-dropdown-trigger="hover">
-                    <a href="">
+                    data-dropdown-trigger="click">
+                    <a href="#">
                         <span>Watch</span>
                     </a>
                 </li>
                 <li class="p-3 xl:p-6 hover:text-cyan-500 hover:underline" data-dropdown-toggle="Footwear"
-                    data-dropdown-trigger="hover">
-                    <a href="">
+                    data-dropdown-trigger="click">
+                    <a href="#">
                         <span>Foot Wear</span>
                     </a>
                 </li>

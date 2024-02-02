@@ -47,7 +47,7 @@ $row = mysqli_fetch_assoc($result);
             <div class="flex flex-wrap -mx-4">
                 <div class="w-full px-4 md:w-1/2 ">
                     <div class=" overflow-hidden ">
-                        <div class="relative mb-6 lg:mb-10 lg:h-2/4 ml-[150px]">
+                        <div class="relative mb-6 lg:mb-10 lg:h-2/4 lg:ml-[150px]">
                             <img src="<?php echo $row['img'] ?>" alt="" class="object-content lg:w-[600px] w-full lg:h-[1000px] shadow-lg shadow-gray-400">
                         </div>
                         

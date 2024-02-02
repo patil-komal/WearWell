@@ -276,7 +276,7 @@
 
         <!-- product card -->
 
-        <div class="border border-slate-200 lg:h-[350px] h-[300px] lg:w-[300px] w-[250px] rounded-lg shadow-lg" onclick="window.location.href = 'product detail.php?pid=<?php echo $row['pid']?>'">
+        <div class="border border-slate-200 lg:h-[350px] h-[300px] lg:w-[300px] w-[250px] rounded-lg shadow-lg" onclick="window.location.href = 'product_detail.php?pid=<?php echo $row['pid']?>'">
           <div class="h-[70%] w-full pt-2">
             <img src="<?php echo $row['img']?>" alt="sarees" class="object-contain object-bottom m-auto h-[95%] w-full">
           </div>

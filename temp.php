@@ -72,7 +72,7 @@ if (isset($_POST["ver"])) {
                 <td><button onclick = "return sendOtp()">Get Otp</button></td>
             </tr>
             </div>
-            <div  class="hidden" id="verifyDiv">
+            <div  class="" id="verifyDiv">
             <tr>
                 <td>verify otp : </td>
                 <td><input type="text" name="otp" id="otp" placeholder="enter received otp"></td>
@@ -122,7 +122,7 @@ if (isset($_POST["ver"])) {
         var otp = Math.floor(Math.random() * 1000000);
 
         function sendOtp() {
-            var result = checkEmpty('email', 'Email');
+            var result = checkEmpty('email', 'email');
             if (result) {
                 (function () {
                     emailjs.init("W1DtM2vy9k64ImV22");
@@ -138,7 +138,7 @@ if (isset($_POST["ver"])) {
                     .send(serviceId, templateId, params)
                     .then((res) => {
                         alert("Otp has been sent to your email");
-                        6
+                        
                     })
                     .catch();
             }
