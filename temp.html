@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>temp</title>
+  </head>
+  <body>
+    <div>
+      <button onclick="handleDecrease()">-</button>
+      <h1 id="products"></h1>
+      <button onclick="handleIncrese()">+</button>
+      <h1 id="price"></h1>
+    </div>
+    <script>
+      const productDiv = document.getElementById("products");
+      const priceDiv = document.getElementById("price");
+      let product = 1;
+      let price = 100;
+      productDiv.innerHTML = product;
+      priceDiv.innerHTML = price;
+      function handleDecrease() {
+        if (product != 1) {
+          product--;
+          priceDiv.innerHTML  = product * price;
+        }
+        productDiv.innerHTML = product;
+      }
+      function handleIncrese() {
+        product++;
+        productDiv.innerHTML = product;
+        priceDiv.innerHTML  = product * price;
+      }
+    </script>
+  </body>
+</html>
