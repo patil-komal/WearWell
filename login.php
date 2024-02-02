@@ -81,7 +81,7 @@ session_start();
         $result1 = mysqli_query($conn, $query1);
         $row = mysqli_fetch_assoc($result1);
         // echo $row['count'];
-        if ($row['count'] > 1) {
+        if ($row['count'] = 1) {
             ?>
             <script>
                 function checkEmpty(elementId, elementName) {
