@@ -253,15 +253,18 @@
                     <hr>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Tops</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=tops'">Tops</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Dreeses</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=dreeses'">Dreeses</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Jumpsuits
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=jumpsuits'">Jumpsuits
                         </a>
                     </li>
                 </ul>
@@ -272,11 +275,13 @@
                     <hr>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Bra</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=bra'">Bra</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Briefs</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=brief'">Briefs</a>
                     </li>
 
                 </ul>
@@ -288,8 +293,8 @@
                     <hr>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">View
-                            All</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=bottomwear'">View All</a>
                     </li>
                 </ul>
             </div>
@@ -303,7 +308,7 @@
                     </li>
                     <hr>
                     <li>
-                        <a href="men.php"
+                        <a href="#"
                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
                             onclick="window.location.href = 'Allp.php?gender=male'">View All</a>
                     </li>
@@ -316,16 +321,19 @@
                     <hr>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">All
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'All_products.php?category=mtopwear'">All
                             TopWear</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Shirt</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=shirt'">Shirt</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">T-Shirt
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=tshirt'">T-Shirt
                         </a>
                     </li>
                 </ul>
@@ -336,15 +344,18 @@
                     <hr>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Jeans</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=jeans'">Jeans</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Trousers</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=trousers'">Trousers</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Track
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=Track Pant'">Track
                             Pants</a>
                     </li>
                 </ul>
@@ -356,7 +367,8 @@
                     <hr>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">All
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=minnerwear'">All
                             Inner Wear</a>
                     </li>
                 </ul>
@@ -384,7 +396,8 @@
                     <hr>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Dresses</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=Dresses'">Dresses</a>
                     </li>
                 </ul>
                 <ul class="lg:text-lg text-md text-gray-700 dark:text-black " aria-labelledby="dropdownHoverButton">
@@ -394,7 +407,8 @@
                     <hr>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Rompers</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=Rompers'">Rompers</a>
                     </li>
                 </ul>
             </div>
@@ -420,12 +434,14 @@
                     <hr>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Women
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=wwatch'">Women
                             Watch</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">men
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=mwatch'">men
                             Watch</a>
                     </li>
                 </ul>

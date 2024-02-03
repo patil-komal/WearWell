@@ -26,7 +26,7 @@
         include "navbar.php";
     ?>
     <?php
-    $conn = mysqli_connect("localhost", "root", "", "product");
+    $conn = mysqli_connect("sql.freedb.tech", "freedb_kps_root", "u@Jywn43rR&MD*5", "freedb_wear_well");
     $category=$_GET['category'];
 
     $query = "SELECT * FROM `product` WHERE `category` LIKE '$category' ";
