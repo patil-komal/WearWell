@@ -397,7 +397,7 @@
                     <li>
                         <a href="#"
                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
-                            onclick="window.location.href = 'products.php?type=Dresses'">Dresses</a>
+                            onclick="window.location.href = 'products.php?type=kdresses'">Dresses</a>
                     </li>
                 </ul>
                 <ul class="lg:text-lg text-md text-gray-700 dark:text-black " aria-labelledby="dropdownHoverButton">
@@ -408,7 +408,7 @@
                     <li>
                         <a href="#"
                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
-                            onclick="window.location.href = 'products.php?type=Rompers'">Rompers</a>
+                            onclick="window.location.href = 'products.php?type=krompers'">Rompers</a>
                     </li>
                 </ul>
             </div>
