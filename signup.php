@@ -35,7 +35,7 @@
 			<img src="img/fashion/s3.png" alt="" class="lg:h-[500px] lg:mt-[20%]">
 		</div>
 		<form novalidate="" class="space-y-6" method="post">
-			<h1 class="text-4xl font-bold">Register Here</h1>
+			<h1 class="text-4xl font-bold">Register Here</h1>	
 			<div>
 				<label for="name" class="text-sm">Full name</label>
 				<input id="name" type="text" placeholder="" class="w-full p-3 rounded " name="name"

@@ -27,14 +27,12 @@ session_start();
 </head>
 
 <body>
-    <?php
-    include "navbar.php";
-    ?>
+ 
 
     <!-- Component Start -->
     <div class="flex flex-col items-center justify-center h-[600px] bg-gray-200 text-gray-700">
         <h1 class="font-bold text-2xl">LOGIN HERE 💻</h1>
-        <form class="flex flex-col  bg-white rounded shadow-lg p-12 mt-12 lg:w-[500px] lg:h-[450px]" action="#"
+        <form class="flex flex-col  bg-white rounded shadow-lg p-12 mt-12 lg:w-[500px] lg:h-[450px]" action=""
             method="post">
             <div id="sendDiv">
                 <label class="font-semibold lg:text-[20px] text-sm" for="usernameField">Email</label>
@@ -65,9 +63,7 @@ session_start();
         </form>
     </div>
     <!-- Component End  -->
-    <?php
-    include "footer.php";
-    ?>
+   
 
     <?php
     $conn = mysqli_connect("sql.freedb.tech", "freedb_kps_root", "u@Jywn43rR&MD*5", "freedb_wear_well");
@@ -86,7 +82,7 @@ session_start();
             <script>
                 function checkEmpty(elementId, elementName) {
                     var element = document.getElementById(elementId).value;
-                    if (element = "") {
+                    if (element === "") {
                         alert(elementName + " can't be empty !");
                         document.getElementById(elementId).focus();
                         return false;
