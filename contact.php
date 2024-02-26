@@ -40,41 +40,35 @@
   </head>
 
   <body>
-    <!-- <section class="text-gray-700 body-font relative mb-2">
-		<div class="absolute inset-0 bg-gray-300">
-			<iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map"
-				scrolling="no"
-				src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=%C4%B0zmir+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
-				style="filter: grayscale(1) contrast(1.2) opacity(0.4);"></iframe>
-		</div>
-		<div class="container px-5 py-24 mx-auto flex">
-			<div
-				class="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10">
-				<h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Conatct Us</h2>
-				<p class="leading-relaxed mb-5 text-gray-600">sent your feedback and Message to Us
-				</p>
-				
-				<input
-					class="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4"
-					placeholder="Name" type="text" id="name">
-					<input
-					class="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4"
-					placeholder="Email" type="email" id="email">
-					<input
-					class="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4"
-					placeholder="Subject" type="text" id="subject">
-				<textarea
-					class="bg-white rounded border border-gray-400 focus:outline-none h-32 focus:border-indigo-500 text-base px-4 py-2 mb-4 resize-none"
-					placeholder="Message" id="message"></textarea>
-				<button
-					class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" onclick = "return sendMessage()">send</button>
-				<p class="text-xs text-gray-500 mt-3">contact us using email....
-				</p>
-			</div>
-		</div>
-	</section> -->
+    <?php 
+      include "navbar.php";
+    ?>
+   
+  <!-- contact page start -->
 
-    <form id="form">
+  <section class="bg-white">
+  <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">Contact Us</h2>
+      <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-900 sm:text-xl">Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know.</p>
+      <form action="#" class="space-y-8">
+          <div>
+              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Your email</label>
+              <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required>
+          </div>
+          <div>
+              <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 ">Subject</label>
+              <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:border-gray-400 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required>
+          </div>
+          <div class="sm:col-span-2">
+              <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Your message</label>
+              <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500  dark:border-gray-400 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
+          </div>
+          <button type="submit" class="py-3 px-5 text-sm font-medium text-center  rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
+      </form>
+  </div>
+</section>
+
+    <!-- <form id="form">
       <h1>contact page</h1>
       <label for="name">Enter Name :- </label>
       <input type="text" name="name" id="name" /><br />
@@ -85,7 +79,7 @@
       <label for="message">Enter mesaage :- </label>
       <input type="text" name="message" id="message" /><br />
       <button type="button" onclick="sendMessage()">Send</button>
-    </form>
+    </form> -->
 
     <script>
       function sendMessage(event) {
@@ -108,5 +102,8 @@
         }
       }
     </script>
+    <?php 
+      include "footer.php";
+    ?>
   </body>
 </html>

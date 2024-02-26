@@ -121,7 +121,7 @@ $row = mysqli_fetch_assoc($result);
                                 </p>
                                 </p>
                             </div>
-                            <p class="max-w-md text-2xl mb-5 text-gray-800 dark:black">
+                            <p class="max-w-md text-2xl mb-5 text-sky-600 dark:black">
                                 <?php echo $row['delcharge'] ?>
                             </p>
                             <p class="inline-block mb-8 text-4xl font-bold text-gray-700 dark:black ">

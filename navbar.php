@@ -459,7 +459,7 @@
                     <li>
                         <a href="#"
                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
-                            onclick="window.location.href = 'Allp.php?gender=footwear'">View All</a>
+                            onclick="window.location.href = 'Allp.php?gender=foootwear'">View All</a>
                     </li>
 
                 </ul>
@@ -470,19 +470,23 @@
                     <hr>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Flats</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=flat'">Flats</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Juttis</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=juttis'">Juttis</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Shoes</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=shoes'">Shoes</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Hills</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=Hills'">Hills</a>
                     </li>
                 </ul>
                 <ul class="lg:text-lg text-md text-gray-700 dark:text-black bg-gray-100"

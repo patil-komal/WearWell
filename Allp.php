@@ -46,7 +46,7 @@
                             class="w-80 h-60 transform hover:scale-110 transition-transform duration-300 ease-in-out" />
                     </div>
                     <div class="h-[15%]">
-                        <h3 class="py-2 z">
+                        <h3 class="py-3 text-xl truncate font-normal">
                             <?php echo $row["pname"]; ?>
                         </h3>
                         <p class="py-2">
