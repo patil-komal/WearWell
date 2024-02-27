@@ -1,7 +1,7 @@
 <?php
+session_start();
 include("./smtp/PHPMailerAutoload.php");
 $conn = mysqli_connect("localhost", "root", "", "products");
-
 
 if (isset($_POST['getotp'])) {
     $email = $_POST["email"];
@@ -54,11 +54,19 @@ function smtp_mailer($to, $subject, $msg)
 ?>
 
 <?php
+$email = $_POST['email'];
+$query = "SELECT * FROM `customer` WHERE `email` LIKE '$email'";
+$result = mysqli_query($conn, $query);
+$row = mysqli_fetch_assoc($result);
+
 if (isset($_POST['submitValue'])) {
     $userOTP = $_POST['userOTP'];
     $systemOTP = $_POST['systemOTP'];
     $email = $_POST['email'];
+    $cid = $row['cid'];
+
     if ($userOTP == $systemOTP) {
+        $_SESSION['cid'] = $cid;
         echo 1;
     } else {
         echo 0;

@@ -62,8 +62,8 @@ session_start();
                 <p>if don't have any account </p>
                 <span class="mx-2 text-gray-300">/</span>
                 <a class="text-blue-400 hover:text-blue-500" href="#">Sign Up</a>
-                <input type="text" name="loginOtp" id="loginOtp" hidden />
-                <input type="text" name="responseText" id="responseText" hidden />
+                <input type="text" class="hidden" name="loginOtp" id="loginOtp"  />
+                <input type="text" class="hidden" name="responseText" id="responseText"  />
             </div>
 
         </form>
@@ -100,8 +100,13 @@ session_start();
                 if (value === "" || value === null) {
                     alert("OTP is not send something went wrong!");
                 } else {
-                    alert("The OTP is send your Email ID");
-                    document.getElementById("enterOTP").focus();
+                    if (value === "enter valid email") {
+                        alert("enter valid email");
+                    }else{
+                        
+                        alert("The OTP is send your Email ID");
+                        document.getElementById("enterOTP").focus();
+                    }
                 }
             } else {
                 alert("please enter email")
@@ -138,7 +143,6 @@ session_start();
             if (emailString !== "" && emailString !== null) return true
             return false
         }
-
     </script>
 </body>
 

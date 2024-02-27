@@ -25,9 +25,10 @@
 
                         <i class="fa-solid fa-user m-auto lg:pl-5 pl-2 w-auto" data-dropdown-toggle="profile"
                             data-dropdown-trigger="hover"></i>
-                       
-                        <i class="fa-solid fa-cart-shopping m-auto lg:pl-5 pl-2 w-auto" onclick="window.location.href = 'addcart.php'" ></i>
-                        
+
+                        <i class="fa-solid fa-cart-shopping m-auto lg:pl-5 pl-2 w-auto"
+                            onclick="window.location.href = 'addcart.php'"></i>
+
 
                     </div>
                 </div>
@@ -49,7 +50,8 @@
                 </button>
             </div>
             <div class="hidden md:flex justify-between items-center w-full md:w-auto md:order-1" id="mobile-menu-3">
-                <ul class="flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-lg md:font-medium lg:text-[25px]">
+                <ul
+                    class="flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-lg md:font-medium lg:text-[25px]">
                     <li>
                         <a href="home.php"
                             class="md:bg-transparent text-gray-700 block pl-3 pr-4 py-2  md:p-0 rounded md:hover:text-blue-700"
@@ -70,40 +72,10 @@
                     </li>
                 </ul>
             </div>
+
             <!-- profile sub menu -->
 
-            <?php
-            if (isset($_SESSION['cid'])) {
-                ?>
-                     <div class="container px-5 py-[45px] mx-auto text-gray-600 body-font z-50 hidden bg-gray-500  hidden bg-white divide-x divide-gray-100 shadow w-fit flex border border-gray-200 drop-shadow-md opacity-[95%]"
-                id="profile" aria-labelledby="dropdownHoverButton">
-                <div class="flex flex-wrap -m-4">
-                    <div class="xl:w-[350px] md:w-1/2 p-4">
-                        <div class="border border-gray-200 p-6 rounded-lg">
-                            <div
-                                class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-                                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                                    <circle cx="12" cy="7" r="4"></circle>
-                                </svg>
-                            </div>
-                            <h2 class="text-gray-900 text-2xl mb-3">Hello</h2>
-                           
-                            <i class="fa-solid fa-bag-shopping text-xl"></i>
-                            <a href="#" class="text-2xl">My Order</a>
-                            <form action="" method="post">
-                            <button name="logout"
-                                class="text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded text-lg  w-[220px] h-[50px]  mb-3" onclick >log
-                                out</button><br></form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                <?php
-            }else {
-                ?>
-                     <div class="container px-5 py-[45px] mx-auto text-gray-600 body-font z-50 hidden bg-gray-500  hidden bg-white divide-x divide-gray-100 shadow w-fit flex border border-gray-200 drop-shadow-md opacity-[95%]"
+            <div class="container px-5 py-[45px] mx-auto text-gray-600 body-font z-50 hidden bg-gray-500  hidden bg-white divide-x divide-gray-100 shadow w-fit flex border border-gray-200 drop-shadow-md opacity-[95%]"
                 id="profile" aria-labelledby="dropdownHoverButton">
                 <div class="flex flex-wrap -m-4">
                     <div class="xl:w-[350px] md:w-1/2 p-4">
@@ -118,25 +90,36 @@
                             </div>
                             <h2 class="text-gray-900 text-2xl mb-3">Hello User</h2>
                             <p class="leading-relaxed text-base mb-2">To access your wear well accound</p>
-                            <button
-                                class="text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded text-lg  w-[220px] h-[50px]  mb-3"><a href="signup.php">Sign
-                                Up</a></button><br>
+                            <?php 
+                                if (isset($_SESSION['cid'])) {
+                                    ?>
+                                        <button
+                                class="text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded text-lg  w-[220px] h-[50px]  mb-3" name="logout"><a
+                                    >log
+                                    out</a></button><br>
+                                    <?php
+                                }
+                                else { ?>
+                                    <button
+                                class="text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded text-lg  w-[220px] h-[50px]  mb-3"><a
+                                    href="signup.php">Sign
+                                    Up</a></button><br>
+                               <?php }
+                            ?>
                             <i class="fa-solid fa-bag-shopping text-xl"></i>
                             <a href="#" class="text-2xl">My Order</a>
                         </div>
                     </div>
                 </div>
             </div>
-                <?php
-            }
-            ?>
         </div>
     </nav>
 </div>
 
 
 <!-- sub navbar  -->
-<div class="sticky top-20 max-w-full fixed top-0 mx-h-auto z-30 bg-gray-100 border-t-[3px] border-gray-500 shadow-md shadow-gray-200">
+<div
+    class="sticky top-20 max-w-full fixed top-0 mx-h-auto z-30 bg-gray-100 border-t-[3px] border-gray-500 shadow-md shadow-gray-200">
     <div class="overflow-x-auto ">
         <nav class="header-links contents font-semibold text-base lg:text-xl ">
             <ul class="flex  justify-around items-center ml-4 xl:ml-8 mr-auto  ">
@@ -527,7 +510,7 @@
 </div>
 
 <?php
-    if (isset($_POST['logout'])) {
-        session_destroy();
-    }
+if (isset($_POST['logout'])) {
+    session_abort();
+}
 ?>
