@@ -258,7 +258,8 @@
 
   <!-- card -->
   <?php
-    $conn = mysqli_connect("sql.freedb.tech", "freedb_kps_root", "u@Jywn43rR&MD*5", "freedb_wear_well");
+   	$conn = mysqli_connect("localhost", "root", "", "products");
+
 
     $query = "SELECT * FROM `product` WHERE `type` LIKE 'cotton saree' ";
     $result = mysqli_query($conn, $query);

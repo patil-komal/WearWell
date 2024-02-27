@@ -497,22 +497,26 @@
                     <hr>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Sports
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=sportsshoes'">Sports
                             Shoes</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Casual
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=casualsshoes'">Casual
                             Shoes</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Formal
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=formalshoes'">Formal
                             Shoes</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black">Sandals</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-200 dark:hover:text-black"
+                            onclick="window.location.href = 'products.php?type=	sandals'">Sandals</a>
                     </li>
                 </ul>
 

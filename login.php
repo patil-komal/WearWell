@@ -9,20 +9,20 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WearWell</title>
-    <!-- <link rel="shortcut icon" href="img/logo3.png" type="image/x-icon"> -->
-    <!-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script> -->
+    <link rel="shortcut icon" href="img/logo3.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" /> -->
-    <!-- <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css"> -->
-    <!-- <link rel="stylesheet"
-        href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
+    <link rel="stylesheet"
+        href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-    <!-- <script src="../path/to/flowbite/dist/flowbite.min.js"></script> -->
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" /> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script> -->
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script> -->
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
 </head>
 
@@ -104,7 +104,7 @@ session_start();
                     document.getElementById("enterOTP").focus();
                 }
             } else {
-                alert("enter a valid email")
+                alert("please enter email")
             }
         }
 
@@ -140,38 +140,6 @@ session_start();
         }
 
     </script>
-
-
-    <!-- <?php
-    $conn = mysqli_connect("sql.freedb.tech", "freedb_kps_root", "u@Jywn43rR&MD*5", "freedb_wear_well");
-    $query = "select * from customer";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_array($result);
-
-    if (isset($_POST['getotp'])) {
-        $email = $_POST['email'];
-        $query1 = "SELECT count(*) as count FROM `customer` WHERE `email` LIKE '$email'";
-        $result1 = mysqli_query($conn, $query1);
-        $row = mysqli_fetch_assoc($result1);
-        if ($row['count'] = 1) {
-            ?>
-                                    <script>
-                                        function checkEmpty(elementId, elementName) {
-                                            var element = document.getElementById(elementId).value;
-                                            if (element === "") {
-                                                alert(elementName + " can't be empty !");
-                                                document.getElementById(elementId).focus();
-                                                return false;
-                                            }
-                                            return true;
-                                        }
-                                    <?php
-        } else {
-            echo "enter valid email";
-        }
-
-    }
-    ?>  -->
 </body>
 
 </html>

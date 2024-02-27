@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("sql.freedb.tech", "freedb_kps_root", "u@Jywn43rR&MD*5", "freedb_wear_well");
+$conn = mysqli_connect("localhost", "root", "", "products");
 $id = $_GET['pid'];
 
 if(isset($_GET['addToCart'])){

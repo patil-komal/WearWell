@@ -1,19 +1,23 @@
 <?php
 include("./smtp/PHPMailerAutoload.php");
+$conn = mysqli_connect("localhost", "root", "", "products");
+
 
 if (isset($_POST['getotp'])) {
     $email = $_POST["email"];
-
+    $query1 = "SELECT count(*) as count FROM `customer` WHERE `email` LIKE '$email'";
+    $result1 = mysqli_query($conn, $query1);
+    $row = mysqli_fetch_assoc($result1);
     // verify the email address in database    
-    // if (user_verification) {
-        $enterOTP = rand(100000,1000000);
+    if ($row['count'] == 1) {
+        $enterOTP = rand(100000, 1000000);
         if (function_exists('smtp_mailer')) {
             smtp_mailer("$email", "Enter the otp for Registering.", "Your OTP is: $enterOTP");
             echo $enterOTP;
         }
-    // } else {
-        // echo null;
-    // }
+    } else {
+        echo "enter valid email";
+    }
 }
 ?>
 
@@ -50,15 +54,14 @@ function smtp_mailer($to, $subject, $msg)
 ?>
 
 <?php
-    if(isset($_POST['submitValue'])){
-        $userOTP = $_POST['userOTP'];
-        $systemOTP = $_POST['systemOTP'];
-        $email = $_POST['email'];
-        if ($userOTP == $systemOTP) {
-            echo 1;
-        }
-        else{
-            echo 0;
-        }
+if (isset($_POST['submitValue'])) {
+    $userOTP = $_POST['userOTP'];
+    $systemOTP = $_POST['systemOTP'];
+    $email = $_POST['email'];
+    if ($userOTP == $systemOTP) {
+        echo 1;
+    } else {
+        echo 0;
     }
+}
 ?>

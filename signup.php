@@ -96,7 +96,7 @@
 		</form>
 	</div>
 	<?php
-	$conn = mysqli_connect("sql.freedb.tech", "freedb_kps_root", "u@Jywn43rR&MD*5", "freedb_wear_well");
+	$conn = mysqli_connect("localhost", "root", "", "products");
 	if (isset($_POST['name'])) {
 		if (isset($_POST['registerbtn'])) {
 			$name = $_POST['name'];
