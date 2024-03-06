@@ -1,15 +1,27 @@
 <?php
+session_start();
+
 $conn = mysqli_connect("localhost", "root", "", "products");
 $id = $_GET['pid'];
 
-if(isset($_GET['addToCart'])){
+if (isset($_POST['addToCart'])) {
     // echo "hello";
-    $sql = "insert into cart (pid,cid)";
+    if (isset($_SESSION["cid"])) {
+        // header("Location:addcart.php");
+        $cid = $_SESSION["cid"];
+        $sql = "insert into cart (pid,cid) value($id,$cid)";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+           header("Location:addcart.php");
+         }
+    } else {
+        header("Location:login.php?pid=" . $id);
+    }
 }
 
-$query = "select * from product where pid =" . $id;
-$result = mysqli_query($conn, $query);
-$row = mysqli_fetch_assoc($result);
+// $query = "select * from product where pid =" . $id;
+// $result = mysqli_query($conn, $query);
+// $row = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -41,16 +53,17 @@ $row = mysqli_fetch_assoc($result);
     <?php
     include "navbar.php";
     ?>
-
+    
     <section class="overflow-hidden bg-white  font-poppins">
         <div class="w-[100%] px-4 py-4 mx-auto lg:py-8 md:px-6">
             <div class="flex flex-wrap -mx-4">
                 <div class="w-full px-4 md:w-1/2 ">
                     <div class=" overflow-hidden ">
                         <div class="relative mb-6 lg:mb-10 lg:h-2/4 lg:ml-[150px]">
-                            <img src="<?php echo $row['img'] ?>" alt="" class="object-content lg:w-[600px] w-full lg:h-[1000px] shadow-lg shadow-gray-400">
+                            <img src="<?php echo $row['img'] ?>" alt=""
+                                class="object-content lg:w-[600px] w-full lg:h-[1000px] shadow-lg shadow-gray-400">
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="w-full px-4 md:w-1/2 ">
@@ -153,16 +166,20 @@ $row = mysqli_fetch_assoc($result);
                                     Size:</h2>
                                 <div class="flex flex-wrap -mx-2 -mb-2">
                                     <button
-                                        class="py-1 mb-2 mr-1 border w-11 hover:border-blue-400 dark:border-gray-400 hover:text-blue-600 dark:hover:border-gray-300 dark:black" value="XL">XL
+                                        class="py-1 mb-2 mr-1 border w-11 hover:border-blue-400 dark:border-gray-400 hover:text-blue-600 dark:hover:border-gray-300 dark:black"
+                                        value="XL">XL
                                     </button>
                                     <button
-                                        class="py-1 mb-2 mr-1 border w-11 hover:border-blue-400 hover:text-blue-600 dark:border-gray-400 dark:hover:border-gray-300 dark:black" value="S">S
+                                        class="py-1 mb-2 mr-1 border w-11 hover:border-blue-400 hover:text-blue-600 dark:border-gray-400 dark:hover:border-gray-300 dark:black"
+                                        value="S">S
                                     </button>
                                     <button
-                                        class="py-1 mb-2 mr-1 border w-11 hover:border-blue-400 hover:text-blue-600 dark:border-gray-400 dark:hover:border-gray-300 dark:black" value="M">M
+                                        class="py-1 mb-2 mr-1 border w-11 hover:border-blue-400 hover:text-blue-600 dark:border-gray-400 dark:hover:border-gray-300 dark:black"
+                                        value="M">M
                                     </button>
                                     <button
-                                        class="py-1 mb-2 mr-1 border w-11 hover:border-blue-400 hover:text-blue-600 dark:border-gray-400 dark:hover:border-gray-300 dark:black" value="XS">XS
+                                        class="py-1 mb-2 mr-1 border w-11 hover:border-blue-400 hover:text-blue-600 dark:border-gray-400 dark:hover:border-gray-300 dark:black"
+                                        value="XS">XS
                                     </button>
                                 </div>
                             </div>
@@ -186,12 +203,19 @@ $row = mysqli_fetch_assoc($result);
                         </div>
                         <div class="flex flex-wrap items-center -mx-4 mt-8">
                             <div class="w-full px-4 mb-4 lg:w-[40%] lg:mb-0">
-                                <a
-                                    class="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300"
-                                    href="product detail.php?pid=<?php echo $id?>&addToCart=true">
-                                    <i class="fa-solid fa-cart-shopping  mr-2"></i>
-                                    Add to Cart
-                                </a>
+                                <form action="" method="post">
+                                    <button
+                                        class="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300 block"
+                                        name="addToCart" id="addToCart">
+                                        <i class="fa-solid fa-cart-shopping  mr-2"></i>
+                                        Add to Cart
+                                    </button>
+                                    <button
+                                        class="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300 hidden"
+                                        name="doneCart" id="doneCart">
+                                        done
+                                    </button>
+                                </form>
                             </div>
                             <div class="w-full px-4 mb-4 lg:mb-0 lg:w-[40%]">
                                 <button

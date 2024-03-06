@@ -45,9 +45,12 @@
 
 <body class="h-full w-full">
   <?php
+  session_start();
+  // echo $_SESSION['cid'];
+ 
   include "navbar.php";
-?>
-  
+  ?>
+
   <!-- corosel -->
   <div id="default-carousel" class="relative px-3 mb-2 w-full lg:h-[400px] h-[200px]" data-carousel="slide">
     <!-- Carousel wrapper -->
@@ -127,171 +130,195 @@
 
   <!-- section 1 -->
   <section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-col text-center w-full  mb-20">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Top Categories to choose from</h1>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">products for you.</p>
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-col text-center w-full  mb-20">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Top Categories to choose from</h1>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">products for you.</p>
+      </div>
+      <div class="flex flex-wrap -m-4">
+        <div class="lg:w-1/3 sm:w-1/2 p-4">
+          <div class="flex relative">
+            <img alt="gallery" class="absolute inset-0 lg:w-full w-[300px] h-full bg-cover object-center"
+              src="img/men/men1.jpg">
+            <div
+              class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+              <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Urbane Latest Men Shirts
+              </h2>
+              <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹258</h1>
+              <p class="leading-relaxed">Name : Urbane Latest Men Shirts <br>
+                Fabric : cotton <br>
+                Sleeve Length : short Sleeves
+                <br>Free Delivery.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-1/3 sm:w-1/2 p-4">
+          <div class="flex relative">
+            <img alt="gallery" class="absolute inset-0 w-full h-full bg-cover object-center" src="img/men/menu1.jpg">
+            <div
+              class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+              <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Men Formal Shirts</h2>
+              <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹308</h1>
+              <p class="leading-relaxed">Name : Men Formal Shirts <br>
+                Fabric : Cotton Blend <br>
+                Sleeve Length : Long Sleeves <br>
+                Free Delivery</p>
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-1/3 sm:w-1/2 p-4">
+          <div class="flex relative">
+            <img alt="gallery" class="absolute inset-0 w-full h-full bg-cover object-center" src="img/men/menu2.jpg">
+            <div
+              class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+              <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Imported Formal Shirts For
+                Mens</h2>
+              <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹236</h1>
+              <p class="leading-relaxed">Name : Imported Formal Shirts For Mens <br>
+                Fabric : Cotton <br>
+                Sleeve Length : Long Sleeves <br>
+                Free Delivery</p>
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-1/3 sm:w-1/2 p-4">
+          <div class="flex relative">
+            <img alt="gallery" class="absolute inset-0 w-full h-full bg-cover object-center" src="img/women/wmenu1.jpg">
+            <div
+              class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+              <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Women Dresses</h2>
+              <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹338</h1>
+              <p class="leading-relaxed">Name : Women Dresses<br>
+                Fabric : Polyester <br>
+                Sleeve Length : Sleeveless <br>
+                Free Delivery</p>
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-1/3 sm:w-1/2 p-4">
+          <div class="flex relative">
+            <img alt="gallery" class="absolute inset-0 w-full h-full bg-cover object-center" src="img/women/wmenu3.jpg">
+            <div
+              class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+              <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Premium Kurta Set For
+                Women</h2>
+              <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹283</h1>
+              <p class="leading-relaxed">Name : Premium Kurta Set For Women<br>
+                Kurta Fabric : Crepe<br>
+                Bottomwear Fabric : Crepe<br>
+                Free Delivery</p>
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-1/3 sm:w-1/2 p-4">
+          <div class="flex relative">
+            <img alt="gallery" class="absolute inset-0 w-full h-full bg-cover object-center" src="img/women/wmenu4.jpg">
+            <div
+              class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+              <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Anarkali Kurti with
+                Palazzo </h2>
+              <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹370</h1>
+              <p class="leading-relaxed">Name : Anarkali Kurti with Palazzo <br>
+                Kurta Fabric : Rayon <br>
+                Sleeve Length : Long Sleeves <br>
+                Free Delivery
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-1/3 sm:w-1/2 p-4">
+          <div class="flex relative">
+            <img alt="gallery" class="absolute inset-0 w-full h-full bg-cover object-center" src="img/kids/kid5.jpg">
+            <div
+              class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+              <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">kids fashion</h2>
+              <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹400</h1>
+              <p class="leading-relaxed">Name :kids fashion<br>
+                Fabric : cotton <br>
+                Sleeve Length : full <br>
+                Free Delivery</p>
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-1/3 sm:w-1/2 p-4">
+          <div class="flex relative">
+            <img alt="gallery" class="absolute inset-0 w-full h-full bg-cover object-center" src="img/kids/kid6.jpg">
+            <div
+              class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+              <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">yellow shirt</h2>
+              <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹283</h1>
+              <p class="leading-relaxed">Name : yellow shirt for kids<br>
+                Kurta Fabric : rayon<br>
+                Bottomwear Fabric : Crepe<br>
+                Free Delivery</p>
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-1/3 sm:w-1/2 p-4">
+          <div class="flex relative">
+            <img alt="gallery" class="absolute inset-0 w-full h-full bg-cover object-center" src="img/kids/kid7.jpg">
+            <div
+              class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+              <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">girl gaun </h2>
+              <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹400</h1>
+              <p class="leading-relaxed">Name : girl gaun<br>
+                Kurta Fabric : cotton <br>
+                Sleeve Length : sleeveless<br>
+                Free Delivery
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="flex flex-wrap -m-4">
-      <div class="lg:w-1/3 sm:w-1/2 p-4">
-        <div class="flex relative">
-          <img alt="gallery" class="absolute inset-0 lg:w-full w-[300px] h-full bg-cover object-center" src="img/men/men1.jpg">
-          <div class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Urbane Latest Men Shirts</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹258</h1>
-            <p class="leading-relaxed">Name : Urbane Latest Men Shirts <br>
-                                      Fabric : cotton <br>
-                                      Sleeve Length : short Sleeves
-                                      <br>Free Delivery.</p>
-          </div>
-        </div>
-      </div>
-      <div class="lg:w-1/3 sm:w-1/2 p-4">
-        <div class="flex relative">
-          <img alt="gallery" class="absolute inset-0 w-full h-full bg-cover object-center" src="img/men/menu1.jpg">
-          <div class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Men Formal Shirts</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹308</h1>
-            <p class="leading-relaxed">Name : Men Formal Shirts <br>
-                                      Fabric : Cotton Blend <br>
-                                      Sleeve Length : Long Sleeves <br>
-                                      Free Delivery</p>
-          </div>
-        </div>
-      </div>
-      <div class="lg:w-1/3 sm:w-1/2 p-4">
-        <div class="flex relative">
-          <img alt="gallery" class="absolute inset-0 w-full h-full bg-cover object-center" src="img/men/menu2.jpg">
-          <div class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Imported Formal Shirts For Mens</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹236</h1>
-            <p class="leading-relaxed">Name : Imported Formal Shirts For Mens <br>
-                                      Fabric : Cotton <br>
-                                      Sleeve Length : Long Sleeves <br>
-                                      Free Delivery</p>
-          </div>
-        </div>
-      </div>
-      <div class="lg:w-1/3 sm:w-1/2 p-4">
-        <div class="flex relative">
-          <img alt="gallery" class="absolute inset-0 w-full h-full bg-cover object-center" src="img/women/wmenu1.jpg">
-          <div class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Women Dresses</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹338</h1>
-            <p class="leading-relaxed">Name : Women Dresses<br>
-              Fabric : Polyester <br>
-              Sleeve Length : Sleeveless <br>
-              Free Delivery</p>
-          </div>
-        </div>
-      </div>
-      <div class="lg:w-1/3 sm:w-1/2 p-4">
-        <div class="flex relative">
-          <img alt="gallery" class="absolute inset-0 w-full h-full bg-cover object-center" src="img/women/wmenu3.jpg">
-          <div class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Premium Kurta Set For Women</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹283</h1>
-            <p class="leading-relaxed">Name : Premium Kurta Set For Women<br>
-              Kurta Fabric : Crepe<br>
-              Bottomwear Fabric : Crepe<br>
-              Free Delivery</p>
-          </div>
-        </div>
-      </div>
-      <div class="lg:w-1/3 sm:w-1/2 p-4">
-        <div class="flex relative">
-          <img alt="gallery" class="absolute inset-0 w-full h-full bg-cover object-center" src="img/women/wmenu4.jpg">
-          <div class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Anarkali Kurti with Palazzo </h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹370</h1>
-            <p class="leading-relaxed">Name : Anarkali Kurti with Palazzo <br>
-              Kurta Fabric : Rayon <br> 
-              Sleeve Length : Long Sleeves <br>
-              Free Delivery
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="lg:w-1/3 sm:w-1/2 p-4">
-        <div class="flex relative">
-          <img alt="gallery" class="absolute inset-0 w-full h-full bg-cover object-center" src="img/kids/kid5.jpg">
-          <div class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">kids fashion</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹400</h1>
-            <p class="leading-relaxed">Name :kids fashion<br>
-              Fabric : cotton <br>
-              Sleeve Length : full <br>
-              Free Delivery</p>
-          </div>
-        </div>
-      </div>
-      <div class="lg:w-1/3 sm:w-1/2 p-4">
-        <div class="flex relative">
-          <img alt="gallery" class="absolute inset-0 w-full h-full bg-cover object-center" src="img/kids/kid6.jpg">
-          <div class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">yellow shirt</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹283</h1>
-            <p class="leading-relaxed">Name : yellow shirt for kids<br>
-              Kurta Fabric : rayon<br>
-              Bottomwear Fabric : Crepe<br>
-              Free Delivery</p>
-          </div>
-        </div>
-      </div>
-      <div class="lg:w-1/3 sm:w-1/2 p-4">
-        <div class="flex relative">
-          <img alt="gallery" class="absolute inset-0 w-full h-full bg-cover object-center" src="img/kids/kid7.jpg">
-          <div class="px-8 py-10 relative z-10 lg:w-full w-[300px] border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">girl gaun </h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">₹400</h1>
-            <p class="leading-relaxed">Name : girl gaun<br>
-              Kurta Fabric : cotton <br> 
-              Sleeve Length : sleeveless<br>
-              Free Delivery
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- card -->
   <?php
-   	$conn = mysqli_connect("localhost", "root", "", "products");
+  $conn = mysqli_connect("localhost", "root", "", "products");
 
 
-    $query = "SELECT * FROM `product` WHERE `type` LIKE 'cotton saree' ";
-    $result = mysqli_query($conn, $query);
-    ?>
+  $query = "SELECT * FROM `product` WHERE `type` LIKE 'cotton saree' ";
+  $result = mysqli_query($conn, $query);
+  ?>
 
   <main class="border border-gray-400 mt-5">
     <div class="h-1/2 border border-yellow-200">
-      <h1 class="lg:text-4xl text-2xl text-gray-900 ml-2 mt-3 mb-3 text-center font-serif">Some Product for you</h1><hr>
+      <h1 class="lg:text-4xl text-2xl text-gray-900 ml-2 mt-3 mb-3 text-center font-serif">Some Product for you</h1>
+      <hr>
       <h1 class="lg:text-3xl text-xl ml-2 h-[10%] text-gray-700 mb-2 mt-2">Female Clothes</h1>
       <div class="grid grid-flow-col overflow-auto gap-10 border-gray-400 h-[90%] justify-start items-center">
 
-      <?php
-            while ($row = mysqli_fetch_assoc($result)) {
-                ?>
+        <?php
+        while ($row = mysqli_fetch_assoc($result)) {
+          ?>
 
-        <!-- product card -->
+          <!-- product card -->
 
-        <div class="border border-slate-200 lg:h-[350px] h-[300px] lg:w-[300px] w-[250px] rounded-lg shadow-lg" onclick="window.location.href = 'product_detail.php?pid=<?php echo $row['pid']?>'">
-          <div class="h-[70%] w-full pt-2">
-            <img src="<?php echo $row['img']?>" alt="sarees" class="object-contain object-bottom m-auto h-[95%] w-full">
+          <div class="border border-slate-200 lg:h-[350px] h-[300px] lg:w-[300px] w-[250px] rounded-lg shadow-lg"
+            onclick="window.location.href = 'product_detail.php?pid=<?php echo $row['pid'] ?>'">
+            <div class="h-[70%] w-full pt-2">
+              <img src="<?php echo $row['img'] ?>" alt="sarees"
+                class="object-contain object-bottom m-auto h-[95%] w-full">
+            </div>
+            <div class="h-[10%]">
+              <h1 class="text-lg truncate font-[500]">Sarees</h1>
+            </div>
+            <div class="h-[10%]">
+              <h1 class="text-lg truncate font-normal">
+                <?php echo $row['pname'] ?>
+              </h1>
+            </div>
+            <div class="h-[10%] flex">
+              <div class="flex justify-center items-center">
+                <?php echo $row['desprice'] ?>
+              </div>
+              <div class="flex justify-center items-center text-sm line-through ml-1">
+                <?php echo $row['originalpice'] ?>
+              </div>
+            </div>
           </div>
-          <div class="h-[10%]">
-            <h1 class="text-lg truncate font-[500]">Sarees</h1>
-          </div>
-          <div class="h-[10%]">
-            <h1 class="text-lg truncate font-normal"><?php echo $row['pname'] ?></h1>
-          </div>
-          <div class="h-[10%] flex">
-            <div class="flex justify-center items-center"><?php echo $row['desprice']?></div>
-            <div class="flex justify-center items-center text-sm line-through ml-1"><?php echo $row['originalpice']?></div>
-          </div>
-        </div>
         <?php } ?>
       </div>
     </div>
@@ -378,9 +405,9 @@
 
   <!-- footer -->
   <?php
-    include "footer.php";
+  include "footer.php";
   ?>
-  
+
 </body>
 
 </html>

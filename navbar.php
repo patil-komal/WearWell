@@ -1,5 +1,4 @@
 <!-- navbar -->
-
 <div class="sticky top-0 max-w-full fixed top-0 mx-h-auto z-50 bg-gray-100 ">
     <nav class="border-gray-200 px-2 py-5 mb-0 border-b-[1px] border-gray-500">
         <div class="container mx-auto flex flex-wrap items-center justify-between">
@@ -25,7 +24,7 @@
 
                         <i class="fa-solid fa-user m-auto lg:pl-5 pl-2 w-auto" data-dropdown-toggle="profile"
                             data-dropdown-trigger="hover"></i>
-
+                    
                         <i class="fa-solid fa-cart-shopping m-auto lg:pl-5 pl-2 w-auto"
                             onclick="window.location.href = 'addcart.php'"></i>
 
@@ -90,21 +89,21 @@
                             </div>
                             <h2 class="text-gray-900 text-2xl mb-3">Hello User</h2>
                             <p class="leading-relaxed text-base mb-2">To access your wear well accound</p>
-                            <?php 
-                                if (isset($_SESSION['cid'])) {
-                                    ?>
-                                        <button
-                                class="text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded text-lg  w-[220px] h-[50px]  mb-3" name="logout"><a
-                                    >log
-                                    out</a></button><br>
-                                    <?php
-                                }
-                                else { ?>
-                                    <button
-                                class="text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded text-lg  w-[220px] h-[50px]  mb-3"><a
-                                    href="signup.php">Sign
-                                    Up</a></button><br>
-                               <?php }
+                            <?php
+                            if (isset($_SESSION['cid'])) {
+                                ?>
+                                <form action="logout.php" method="post">
+                                    <button type="submit"
+                                        class="text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded text-lg  w-[220px] h-[50px]  mb-3"
+                                        name="logout">logout</button><br>
+                                </form>
+                                <?php
+                            } else { ?>
+                                <button
+                                    class="text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded text-lg  w-[220px] h-[50px]  mb-3"><a
+                                        href="signup.php">Sign
+                                        Up</a></button><br>
+                            <?php }
                             ?>
                             <i class="fa-solid fa-bag-shopping text-xl"></i>
                             <a href="#" class="text-2xl">My Order</a>
@@ -510,7 +509,7 @@
 </div>
 
 <?php
-if (isset($_POST['logout'])) {
-    session_abort();
-}
+ if (isset($_POST['logout'])) {
+    session_destroy();
+  }
 ?>

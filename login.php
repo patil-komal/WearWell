@@ -1,5 +1,9 @@
 <?php
 session_start();
+$pid = "";
+if (isset($_GET['pid'])) {
+    $pid = $_GET['pid'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +46,13 @@ session_start();
 
                 <button type="button"
                     class="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-md text-blue-100 hover:bg-blue-700"
-                    name="getotp" id="getotp" value="1" onclick="handleClick()">Get OTP</button>
+                    name="getotp" id="getotp" value="1" onclick="handleClick()">
+                    <!-- <h1 class="block" id="button"> -->
+                    Get OTP
+                    <!-- </h1> -->
+                    <!-- <span id="loader"
+                        class="animate-spin w-6 h-6 border-4 border-slate-400 border-t-slate-100  rounded-full hidden"></span> -->
+                </button>
             </div>
             <div id="verifyDiv" class="mt-3">
                 <label class="font-semibold lg:text-[20px] text-sm mt-3" for="passwordField">Enter OTP </label>
@@ -52,8 +62,7 @@ session_start();
 
                 <button
                     class="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-md text-blue-100 hover:bg-blue-700 flex justify-center items-center"
-                    type="button" name="sbmt" id="sbmt" onclick="handleSubmit()"
-                    value="1">
+                    type="button" name="sbmt" id="sbmt" onclick="handleSubmit()" value="1">
                     <span class="h-2 w-2"></span>
                     <span>Login</span>
                 </button>
@@ -62,10 +71,10 @@ session_start();
                 <p>if don't have any account </p>
                 <span class="mx-2 text-gray-300">/</span>
                 <a class="text-blue-400 hover:text-blue-500" href="#">Sign Up</a>
-                <input type="text" class="hidden" name="loginOtp" id="loginOtp"  />
-                <input type="text" class="hidden" name="responseText" id="responseText"  />
+                <input type="text" class="hidden" name="loginOtp" id="loginOtp" />
+                <input type="text" class="hidden" name="responseText" id="responseText" />
+                <input type="text" class="hidden" name="pid" id="pid" value="<?php echo $pid ?>">
             </div>
-
         </form>
     </div>
     <!-- Component End  -->
@@ -89,12 +98,23 @@ session_start();
             xhttp.send(data);
         }
 
-        function handleClick() {
+        async function handleClick() {
+            // const button = document.getElementById("button")
+            // const loader = document.getElementById("loader")
+            // button.classList.remove("block")
+            // loader.classList.remove("hidden")
+
+            // loader.classList.add("block")
+            // button.classList.add("hidden")
+
             var email = document.getElementById("email").value;
 
             let result = checkEmpty(email)
 
             if (result) {
+
+
+
                 ajaxCall("POST", "mail.php", "getotp=1&email=" + email, "loginOtp", false);
                 let value = document.getElementById("loginOtp").value;
                 if (value === "" || value === null) {
@@ -102,8 +122,8 @@ session_start();
                 } else {
                     if (value === "enter valid email") {
                         alert("enter valid email");
-                    }else{
-                        
+                    } else {
+
                         alert("The OTP is send your Email ID");
                         document.getElementById("enterOTP").focus();
                     }
@@ -119,6 +139,7 @@ session_start();
             var userOTP = document.getElementById("enterOTP").value;
             var systemOTP = document.getElementById("loginOtp").value;
             var submitButton = document.getElementById("sbmt").value;
+            var pid = document.getElementById("pid").value;
 
             ajaxCall(
                 "POST",
@@ -131,7 +152,12 @@ session_start();
             let responseValue = document.getElementById("responseText").value
             if (responseValue === '1') {
                 alert("successfully")
-                window.location.href = "home.php"
+                if (pid !== "" || pid !== undefined) {
+                    window.location.href = "home.php";
+                }
+                else{
+                    window.location.href = "product_detail.php?pid=" + pid;
+                }
             } else {
                 alert("otp not matched")
             }
