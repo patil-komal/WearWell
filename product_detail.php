@@ -19,9 +19,9 @@ if (isset($_POST['addToCart'])) {
     }
 }
 
-// $query = "select * from product where pid =" . $id;
-// $result = mysqli_query($conn, $query);
-// $row = mysqli_fetch_assoc($result);
+$query = "select * from product where pid =" . $id;
+$result = mysqli_query($conn, $query);
+$row = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>

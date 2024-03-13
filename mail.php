@@ -34,9 +34,9 @@ function smtp_mailer($to, $subject, $msg)
     $mail->IsHTML(true);
     $mail->CharSet = 'UTF-8';
     //$mail->SMTPDebug = 2; 
-    $mail->Username = "adipathak7488@gmail.com";
-    $mail->Password = "spmg rvnm ngzb wllq";
-    $mail->SetFrom("adipathak7488@gmail.com");
+    $mail->Username = "patilkomal939@gmail.com";
+    $mail->Password = "glps qijn jrrm wsjp";
+    $mail->SetFrom("patilkomal939@gmail.com");
     $mail->Subject = $subject;
     $mail->Body = $msg;
     $mail->AddAddress($to);

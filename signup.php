@@ -22,6 +22,32 @@
 </head>
 
 <body>
+<?php
+	$conn = mysqli_connect("localhost", "root", "", "products");
+	if (isset($_POST['name'])) {
+		if (isset($_POST['registerbtn'])) {
+			$name = $_POST['name'];
+			$email = $_POST['email'];
+			$gender = $_POST['gender'];
+			$mobile = $_POST['mno'];
+			$address = $_POST['address'];
+			$country = $_POST['country'];
+			$city = $_POST['city'];
+			$state = $_POST['state'];
+			$pincode = $_POST['pincode'];
+			$query = "INSERT INTO `customer` ( `cname`, `email`, `gender`, `mobile`, `address`, `country`, `state`, `city`, `pincode`) VALUES ( '$name', '$email', '$gender', '$mobile', '$address', '$country', '$state', '$city', '$pincode');";
+			$result = mysqli_query($conn, $query);
+			if ($result) {
+				header("Location:login.php");
+			} else {
+				?>
+				<script> alert("cant register")</script>
+				<?php
+			}
+
+		}
+	}
+	?>
 	<?php
 		include "navbar.php";
 	?>
@@ -83,10 +109,7 @@
 				<label for="pincode" class="text-sm lg:ml-[20%] ml-[5%]">Pincode :- </label>
 				<input type="text" name="pincode" id="pincode" class="lg:w-[100px] w-[80px] h-[30px] rounded">
 			</div>
-			<div>
-				<label for="password" class="text-sm">Password</label>
-				<input id="password" type="text" class="w-full p-3 rounded " name="password" fdprocessedid="0r5vp">
-			</div>
+			
 			<button type="submit"
 				class="w-fit  p-3 text-sm font-bold tracki uppercase rounded dark:bg-violet-400 dark:text-gray-900"
 				fdprocessedid="gonf1a" name="registerbtn" id="registerbtn">Register</button>
@@ -95,31 +118,7 @@
 			</h1>
 		</form>
 	</div>
-	<?php
-	$conn = mysqli_connect("localhost", "root", "", "products");
-	if (isset($_POST['name'])) {
-		if (isset($_POST['registerbtn'])) {
-			$name = $_POST['name'];
-			$email = $_POST['email'];
-			$gender = $_POST['gender'];
-			$mobile = $_POST['mno'];
-			$address = $_POST['address'];
-			$country = $_POST['country'];
-			$city = $_POST['city'];
-			$state = $_POST['state'];
-			$pincode = $_POST['pincode'];
-			$password = $_POST['password'];
-			$query = "INSERT INTO `customer` ( `cname`, `email`, `gender`, `mobile`, `address`, `country`, `state`, `city`, `pincode`, `password`) VALUES ( '$name', '$email', '$gender', '$mobile', '$address', '$country', '$state', '$city', '$pincode', '$password');";
-			$result = mysqli_query($conn, $query);
-			if ($result) {
-				echo "inserted";
-			} else {
-				echo "not inserted";
-			}
 
-		}
-	}
-	?>
 </body>
 
 </html>
