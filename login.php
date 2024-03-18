@@ -30,8 +30,11 @@ if (isset($_GET['pid'])) {
 
 </head>
 
-<body>
+<body class="font-serif">
 
+<?php 
+    include "navbar2.php";
+?>
 
     <!-- Component Start -->
     <div class="flex flex-col items-center justify-center h-[600px] bg-gray-200 text-gray-700">
@@ -70,7 +73,7 @@ if (isset($_GET['pid'])) {
             <div class="flex mt-6 justify-center lg:text-[15px] text-sm">
                 <p>if don't have any account </p>
                 <span class="mx-2 text-gray-300">/</span>
-                <a class="text-blue-400 hover:text-blue-500" href="#">Sign Up</a>
+                <a class="text-blue-400 hover:text-blue-500" href="signup.php">Sign Up</a>
                 <input type="text" class="hidden" name="loginOtp" id="loginOtp" />
                 <input type="text" class="hidden" name="responseText" id="responseText" />
                 <input type="text" class="hidden" name="pid" id="pid" value="<?php echo $pid ?>">

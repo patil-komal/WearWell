@@ -1,78 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WearWell</title>
-    <link rel="shortcut icon" href="img/logo3.png" type="image/x-icon" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="icon" type="image/x-icon" href="img/logo4.png" />
-    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
-    ></script>
-  </head>
 
-  <body>
-    <?php 
-      include "navbar.php";
-    ?>
-   
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WearWell</title>
+  <link rel="shortcut icon" href="img/logo3.png" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css" />
+  <link rel="stylesheet"
+    href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" type="image/x-icon" href="img/logo4.png" />
+  <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+  <script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+</head>
+
+<body class="font-serif">
+  <?php
+  include "navbar.php";
+  ?>
+
   <!-- contact page start -->
 
-  <section class="bg-white">
-  <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+  <section class="bg-gray-200">
+    <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
       <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">Contact Us</h2>
-      <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-900 sm:text-xl">Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know.</p>
+      <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-900 sm:text-xl">Got a technical issue?
+        Want to send feedback about a beta feature? Need details about our Business plan? Let us know.</p>
       <form action="#" class="space-y-8" id="form" method="post">
-          <div>
-              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Your email</label>
-              <input type="email" id="email" name="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required>
-          </div>
-          <div>
-              <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Your name</label>
-              <input type="name" id="name" name="name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="enter name" required>
-          </div>
-          <div>
-              <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 ">Subject</label>
-              <input type="text" id="subject" name="subject" class="block p-3 w-full text-gray-900 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:border-gray-400 dark:placeholder-gray-400  dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required>
-          </div>
-          <div class="sm:col-span-2">
-              <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Your message</label>
-              <textarea id="message" rows="6" name="message" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500  dark:border-gray-400 dark:placeholder-gray-400  dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
-          </div>
-          <button type="submit" name="sent" class="py-3 px-5 text-sm font-medium text-center  rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-gray-300 dark:hover:bg-primary-700 dark:focus:ring-primary-800" onclick="sendMessage()">Send message</button>
+        <div>
+          <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Your email</label>
+          <input type="email" id="email" name="email"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+            placeholder="name@flowbite.com" required>
+        </div>
+        <div>
+          <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Your name</label>
+          <input type="name" id="name" name="name"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+            placeholder="enter name" required>
+        </div>
+        <div>
+          <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 ">Subject</label>
+          <input type="text" id="subject" name="subject"
+            class="block p-3 w-full text-gray-900 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:border-gray-400 dark:placeholder-gray-400  dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+            placeholder="Let us know how we can help you" required>
+        </div>
+        <div class="sm:col-span-2">
+          <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Your message</label>
+          <textarea id="message" rows="6" name="message"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500  dark:border-gray-400 dark:placeholder-gray-400  dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            placeholder="Leave a comment..."></textarea>
+        </div>
+        <button type="submit" name="sent"
+          class="py-3 px-5 text-sm font-medium text-center  rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-gray-300 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+          onclick="return sendMessage()">Send message</button>
       </form>
-  </div>
-</section>
+    </div>
+  </section>
 
-    <!-- <form id="form">
+  <!-- <form id="form">
       <h1>contact page</h1>
       <label for="name">Enter Name :- </label>
       <input type="text" name="name" id="name" /><br />
@@ -85,47 +82,32 @@
       <button type="button" onclick="sendMessage()">Send</button>
     </form> -->
 
-    <!-- <script>
-      function sendMessage(event) {
-        const form = document.getElementById("form");
-        try {
-          const serviceID = "service_fwikaeu";
-          const templateID = "template_ota2dbp";
-          const publicKey = "W1DtM2vy9k64ImV22";
+  <script>
+    function sendMessage() {
+      (function () {
+        emailjs.init("W1DtM2vy9k64ImV22");
+      })();
 
-          emailjs.sendForm(serviceID, templateID, form, publicKey).then(
-            () => {
-              alert("Sent!");
-            },
-            (err) => {
-              alert(JSON.stringify(err));
-            }
-          );
-        } catch (error) {
-          console.log(error);
-        }
-      }
-    </script> -->
-    <?php
-     if (isset($_POST['sent'])) {
-      $to = "patilkomal939@gmail.com";
-      $from = $_POST['email'];
-      $message = $_POST['message'];
-      $subject = $_POST['subject'];
-      $headers = "MIME-Version: 1.0" . "\r\n";
-      $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+      var serviceId = "service_fwikaeu";
+      var templateId = "template_ota2dbp";
+      var params = {
+        senderemail: document.querySelector("#email").value,
+        sendername: document.querySelector("#name").value,
+        subject: document.querySelector("#subject").value,
+        message: document.querySelector("#message").value,
+      };
+      emailjs
+        .send(serviceId, templateId, params)
+        .then((res) => {
+          alert("Thanks " + params["sendername"] + " your message has been sent");
+        })
+        .catch();
+    }
+  </script>
 
-      $headers .= 'From: ' + $from . "\r\n";
-      $headers .= 'Cc: patilkomal939@gmail.com' . "\r\n";
-      mail($to,$subject,$message,$headers);
-      if (mail) {
-        echo "done";
-      }
-     }
+  <?php
+  include "footer.php";
+  ?>
+</body>
 
-    ?>
-    <?php 
-      include "footer.php";
-    ?>
-  </body>
 </html>

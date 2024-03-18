@@ -43,7 +43,7 @@
   </style>
 </head>
 
-<body class="h-full w-full">
+<body class="h-full w-full font-serif">
   <?php
   session_start();
   // echo $_SESSION['cid'];
@@ -288,6 +288,159 @@
       <h1 class="lg:text-4xl text-2xl text-gray-900 ml-2 mt-3 mb-3 text-center font-serif">Some Product for you</h1>
       <hr>
       <h1 class="lg:text-3xl text-xl ml-2 h-[10%] text-gray-700 mb-2 mt-2">Female Clothes</h1>
+      <div class="grid grid-flow-col overflow-auto gap-10 border-gray-400 h-[90%] justify-start items-center">
+
+        <?php
+        while ($row = mysqli_fetch_assoc($result)) {
+          ?>
+
+          <!-- product card -->
+
+          <div class="border border-slate-200 lg:h-[350px] h-[300px] lg:w-[300px] w-[250px] rounded-lg shadow-lg"
+            onclick="window.location.href = 'product_detail.php?pid=<?php echo $row['pid'] ?>'">
+            <div class="h-[70%] w-full pt-2">
+              <img src="<?php echo $row['img'] ?>" alt="sarees"
+                class="object-contain object-bottom m-auto h-[95%] w-full">
+            </div>
+            <div class="h-[10%]">
+              <h1 class="text-lg truncate font-[500]">Sarees</h1>
+            </div>
+            <div class="h-[10%]">
+              <h1 class="text-lg truncate font-normal">
+                <?php echo $row['pname'] ?>
+              </h1>
+            </div>
+            <div class="h-[10%] flex">
+              <div class="flex justify-center items-center">
+                <?php echo $row['desprice'] ?>
+              </div>
+              <div class="flex justify-center items-center text-sm line-through ml-1">
+                <?php echo $row['originalpice'] ?>
+              </div>
+            </div>
+          </div>
+        <?php } ?>
+      </div>
+    </div>
+    <div class="h-1/2 border border-gray-400"></div>
+  </main>
+
+  <!-- card 2  -->
+
+  <?php
+  $conn = mysqli_connect("localhost", "root", "", "products");
+
+
+  $query = "SELECT * FROM `product` WHERE `type` LIKE 'anarkali kurtis' ";
+  $result = mysqli_query($conn, $query);
+  ?>
+
+  <main class="border border-gray-400 mt-5">
+    <div class="h-1/2 border border-yellow-200">
+      <hr>
+      <h1 class="lg:text-3xl text-xl ml-2 h-[10%] text-gray-700 mb-2 mt-2">Female Dresses</h1>
+      <div class="grid grid-flow-col overflow-auto gap-10 border-gray-400 h-[90%] justify-start items-center">
+
+        <?php
+        while ($row = mysqli_fetch_assoc($result)) {
+          ?>
+
+          <!-- product card -->
+
+          <div class="border border-slate-200 lg:h-[350px] h-[300px] lg:w-[300px] w-[250px] rounded-lg shadow-lg"
+            onclick="window.location.href = 'product_detail.php?pid=<?php echo $row['pid'] ?>'">
+            <div class="h-[70%] w-full pt-2">
+              <img src="<?php echo $row['img'] ?>" alt="sarees"
+                class="object-contain object-bottom m-auto h-[95%] w-full">
+            </div>
+            <div class="h-[10%]">
+              <h1 class="text-lg truncate font-[500]">Sarees</h1>
+            </div>
+            <div class="h-[10%]">
+              <h1 class="text-lg truncate font-normal">
+                <?php echo $row['pname'] ?>
+              </h1>
+            </div>
+            <div class="h-[10%] flex">
+              <div class="flex justify-center items-center">
+                <?php echo $row['desprice'] ?>
+              </div>
+              <div class="flex justify-center items-center text-sm line-through ml-1">
+                <?php echo $row['originalpice'] ?>
+              </div>
+            </div>
+          </div>
+        <?php } ?>
+      </div>
+    </div>
+    <div class="h-1/2 border border-gray-400"></div>
+  </main>
+
+  <!-- card 3  -->
+
+  <?php
+  $conn = mysqli_connect("localhost", "root", "", "products");
+
+
+  $query = "SELECT * FROM `product` WHERE `type` LIKE 'shirt' ";
+  $result = mysqli_query($conn, $query);
+  ?>
+
+  <main class="border border-gray-400 mt-5">
+    <div class="h-1/2 border border-yellow-200">
+      <hr>
+      <h1 class="lg:text-3xl text-xl ml-2 h-[10%] text-gray-700 mb-2 mt-2">Male Clothes</h1>
+      <div class="grid grid-flow-col overflow-auto gap-10 border-gray-400 h-[90%] justify-start items-center">
+
+        <?php
+        while ($row = mysqli_fetch_assoc($result)) {
+          ?>
+
+          <!-- product card -->
+
+          <div class="border border-slate-200 lg:h-[350px] h-[300px] lg:w-[300px] w-[250px] rounded-lg shadow-lg"
+            onclick="window.location.href = 'product_detail.php?pid=<?php echo $row['pid'] ?>'">
+            <div class="h-[70%] w-full pt-2">
+              <img src="<?php echo $row['img'] ?>" alt="sarees"
+                class="object-contain object-bottom m-auto h-[95%] w-full">
+            </div>
+            <div class="h-[10%]">
+              <h1 class="text-lg truncate font-[500]">Sarees</h1>
+            </div>
+            <div class="h-[10%]">
+              <h1 class="text-lg truncate font-normal">
+                <?php echo $row['pname'] ?>
+              </h1>
+            </div>
+            <div class="h-[10%] flex">
+              <div class="flex justify-center items-center">
+                <?php echo $row['desprice'] ?>
+              </div>
+              <div class="flex justify-center items-center text-sm line-through ml-1">
+                <?php echo $row['originalpice'] ?>
+              </div>
+            </div>
+          </div>
+        <?php } ?>
+      </div>
+    </div>
+    <div class="h-1/2 border border-gray-400"></div>
+  </main>
+
+<!-- card 4  -->
+
+<?php
+  $conn = mysqli_connect("localhost", "root", "", "products");
+
+
+  $query = "SELECT * FROM `product` WHERE `type` LIKE 'kdresses' ";
+  $result = mysqli_query($conn, $query);
+  ?>
+
+  <main class="border border-gray-400 mt-5">
+    <div class="h-1/2 border border-yellow-200">
+      <hr>
+      <h1 class="lg:text-3xl text-xl ml-2 h-[10%] text-gray-700 mb-2 mt-2">Kids Clothes</h1>
       <div class="grid grid-flow-col overflow-auto gap-10 border-gray-400 h-[90%] justify-start items-center">
 
         <?php

@@ -22,7 +22,7 @@
 
 </head>
 
-<body>
+<body class="font-serif">
     <?php
     include "navbar.php";
     ?>

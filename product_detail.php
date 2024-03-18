@@ -49,7 +49,7 @@ $row = mysqli_fetch_assoc($result);
 
 </head>
 
-<body class="">
+<body class="font-serif">
     <?php
     include "navbar.php";
     ?>

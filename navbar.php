@@ -1,5 +1,5 @@
 <!-- navbar -->
-<div class="sticky top-0 max-w-full fixed top-0 mx-h-auto z-50 bg-gray-100 ">
+<div class="sticky top-0 font-serif max-w-full fixed top-0 mx-h-auto z-50 bg-gray-100 ">
     <nav class="border-gray-200 px-2 py-5 mb-0 border-b-[1px] border-gray-500">
         <div class="container mx-auto flex flex-wrap items-center justify-between">
             <a href="#" class="flex">
@@ -9,18 +9,10 @@
             </a>
             <div class="flex md:order-2">
                 <div class="relative mr-3 md:mr-0 md:flex">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </div>
+                   
+                
                     <div class="flex justify-between lg:w-full w-40">
-                        <input type="text" id="email-adress-icon"
-                            class="bg-gray-50 border flex border-gray-300 text-gray-900 sm:text-sm radius-10 rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full pl-10 p-2"
-                            placeholder="Search..." />
+                        
 
                         <i class="fa-solid fa-user m-auto lg:pl-5 pl-2 w-auto" data-dropdown-toggle="profile"
                             data-dropdown-trigger="hover"></i>
