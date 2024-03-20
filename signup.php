@@ -49,7 +49,7 @@
 	}
 	?>
 	<?php
-		include "navbar.php";
+		include "navbar2.php";
 	?>
 	<div
 		class="grid max-w-screen-2xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 shadow-xl shadow-gray-400">
@@ -87,26 +87,20 @@
 			</div>
 			<div>
 				<label for="country" class="text-sm">Country :- </label>
-				<select name="country" id="country" class="lg:ml-2 ml-0 rounded">
-					<option value="select">select</option>
-					<option value="india">india</option>
-					<option value="america">america</option>
-				</select>
-				<label for="state" class="text-sm lg:ml-[20%] ml-[5%]">State :- </label>
-				<select name="state" id="state" class="lg:ml-5 ml-4 rounded">
-					<option value="select">select</option>
-					<option value="gujarat">gujarat</option>
-					<option value="rajkot">rajkot</option>
+				<select name="country" id="country" class="lg:ml-2 w-[400px] ml-0 rounded" onchange="loadStates()">
+					<option value="defult">Select Country</option>
+				</select><br><br>
+				<label for="state" class="text-sm">State :- </label>
+				<select name="state" id="state" class="state  lg:ml-5 w-[400px] ml-4 rounded" onchange="loadCities()">
+					<option value="default" class="">Select State</option>
 				</select>
 			</div>
 			<div>
 				<label for="city" class="text-sm">City :- </label>
-				<select name="city" id="city" class="lg:ml-8 ml-4 rounded">
-					<option value="select">select</option>
-					<option value="surat">surat</option>
-					<option value="delhi">delhi</option>
+				<select name="city" id="city" class="city lg:ml-8 w-[200px] ml-4 rounded">
+					<option value="default">Select City</option>
 				</select>
-				<label for="pincode" class="text-sm lg:ml-[20%] ml-[5%]">Pincode :- </label>
+				<label for="pincode" class="text-sm lg:ml-[15%] ml-[5%]">Pincode :- </label>
 				<input type="text" name="pincode" id="pincode" class="lg:w-[100px] w-[80px] h-[30px] rounded">
 			</div>
 			
@@ -122,3 +116,87 @@
 </body>
 
 </html>
+
+<script>
+	var config = {
+        cUrl: 'https://api.countrystatecity.in/v1',
+		ckey: 'd1VxcnBBcE5WZDBxOW1OVTJ4dldlR2hiOWVCdmhENlhxbmFycXhNVQ=='
+    }
+
+    var countrySelect = document.querySelector('#country'),
+        stateSelect = document.querySelector('#state'),
+        citySelect = document.querySelector('#city');
+
+    function loadCountries() {
+        countrySelect.disabled = false;
+        stateSelect.disabled = true;
+        citySelect.disabled = true;
+
+        countrySelect.innerHTML = '<option value="">Select Country</option>';
+        stateSelect.innerHTML = '<option value="">Select State</option>';
+        citySelect.innerHTML = '<option value="">Select City</option>';
+
+        fetch(`${config.cUrl}/countries`, {
+            headers: { "X-CSCAPI-KEY": config.ckey }
+        })
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country.iso2;
+                option.textContent = country.name;
+                countrySelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error loading countries:', error));
+    }
+
+    function loadStates() {
+        stateSelect.disabled = false;
+        citySelect.disabled = true;
+
+        const selectedCountryCode = countrySelect.value;
+
+        stateSelect.innerHTML = '<option value="">Select State</option>';
+        citySelect.innerHTML = '<option value="">Select City</option>';
+
+        fetch(`${config.cUrl}/countries/${selectedCountryCode}/states`, {
+            headers: { "X-CSCAPI-KEY": config.ckey }
+        })
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(state => {
+                const option = document.createElement('option');
+                option.value = state.iso2;
+                option.textContent = state.name;
+                stateSelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error loading states:', error));
+    }
+
+    function loadCities() {
+        citySelect.disabled = false;
+
+        const selectedCountryCode = countrySelect.value;
+        const selectedStateCode = stateSelect.value;
+
+        citySelect.innerHTML = '<option value="">Select City</option>';
+
+        fetch(`${config.cUrl}/countries/${selectedCountryCode}/states/${selectedStateCode}/cities`, {
+            headers: { "X-CSCAPI-KEY": config.ckey }
+        })
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(city => {
+                const option = document.createElement('option');
+                option.value = city.name;
+                option.textContent = city.name;
+                citySelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error loading cities:', error));
+    }
+
+    window.onload = loadCountries;
+</script>
