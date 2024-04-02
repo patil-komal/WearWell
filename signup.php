@@ -21,7 +21,7 @@
 
 </head>
 
-<body class="font-serif">
+<body class="font-sans">
 <?php
 	$conn = mysqli_connect("localhost", "root", "", "products");
 	if (isset($_POST['name'])) {

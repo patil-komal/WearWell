@@ -1,4 +1,4 @@
-<header class="sticky top-0 fixed z-50 bg-gray-100 text-gray-600 body-font font-serif">
+<header class="sticky top-0 fixed z-50 bg-gray-100 text-gray-600 body-font font-sans">
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
     <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
     <img src="img/logo3.png" alt="Logo" class="h-10 w-auto rounded-full" />

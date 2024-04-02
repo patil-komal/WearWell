@@ -43,7 +43,7 @@
   </style>
 </head>
 
-<body class="h-full w-full font-serif">
+<body class="h-full w-full font-sans">
   <?php
   session_start();
   // echo $_SESSION['cid'];

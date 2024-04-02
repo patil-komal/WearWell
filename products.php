@@ -21,7 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </head>
 
-<body class="font-serif">
+<body class="font-sans">
     <?php
         include "navbar.php";
     ?>

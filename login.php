@@ -30,7 +30,7 @@ if (isset($_GET['pid'])) {
 
 </head>
 
-<body class="font-serif">
+<body class="font-sans">
 
 <?php 
     include "navbar2.php";

@@ -9,11 +9,46 @@ if (isset($_POST['addToCart'])) {
     if (isset($_SESSION["cid"])) {
         // header("Location:addcart.php");
         $cid = $_SESSION["cid"];
-        $sql = "insert into cart (pid,cid) value($id,$cid)";
-        $result = mysqli_query($conn, $sql);
-        if ($result) {
-           header("Location:addcart.php");
-         }
+        $cardcheck = "select count(*) as COUNT from cart where pid = $id AND cid = $cid";
+        $cardresult = mysqli_query($conn, $cardcheck);
+        $cart = mysqli_fetch_assoc($cardresult);
+        $data = $cart['COUNT'];
+        if ($data == 0) {
+
+            $sql = "insert into cart (pid,cid) value($id,$cid)";
+            $result = mysqli_query($conn, $sql);
+            if ($result) {
+                header("Location:addcart.php");
+            }
+        } else {
+            echo "<script>alert('Already added in cart')</script>";
+        }
+    } else {
+        header("Location:login.php?pid=" . $id);
+    }
+}
+if (isset($_POST['order'])) {
+    if (isset($_SESSION["cid"])) {
+        $cid = $_SESSION["cid"];
+        // echo "<script>alert(".$cid.")</script>"; 
+        $check = "select count(*) as COUNT from ordertbl where pid = $id AND cid = $cid";
+        $checkresult = mysqli_query($conn, $check);
+        $row = mysqli_fetch_assoc($checkresult);
+        $order = $row['COUNT'];
+        if ($order == 0) {
+            // echo "<script>alert('new data')</script>";
+            $orderquery = "INSERT INTO `ordertbl`(`cid`, `pid`) VALUES ('$cid','$id')";
+            $orderresult = mysqli_query($conn, $orderquery);
+            if ($orderresult) {
+
+                header("Location:order.php?pid=" . $id);
+            } else {
+                echo "<script>alert('some problem occcupy')</script>";
+            }
+        } else {
+
+            header("Location:order.php?pid=" . $id);
+        }
     } else {
         header("Location:login.php?pid=" . $id);
     }
@@ -49,11 +84,11 @@ $row = mysqli_fetch_assoc($result);
 
 </head>
 
-<body class="font-serif">
+<body class="font-sans">
     <?php
     include "navbar.php";
     ?>
-    
+
     <section class="overflow-hidden bg-white  font-poppins">
         <div class="w-[100%] px-4 py-4 mx-auto lg:py-8 md:px-6">
             <div class="flex flex-wrap -mx-4">
@@ -73,51 +108,6 @@ $row = mysqli_fetch_assoc($result);
                             <h2 class="max-w-xl mt-2 mb-6 text-2xl font-bold dark:black md:text-4xl">
                                 <?php echo $row['pname'] ?>
                             </h2>
-                            <div class="flex items-center mb-6 ">
-                                <ul class="flex mr-2">
-                                    <li>
-                                        <a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="w-4 mr-1 text-red-500 dark:black bi bi-star "
-                                                viewBox="0 0 16 16">
-                                                <path
-                                                    d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                                            </svg>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="w-4 mr-1 text-red-500 dark:black bi bi-star "
-                                                viewBox="0 0 16 16">
-                                                <path
-                                                    d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                                            </svg>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="w-4 mr-1 text-red-500 dark:black bi bi-star "
-                                                viewBox="0 0 16 16">
-                                                <path
-                                                    d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                                            </svg>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="w-4 mr-1 text-red-500 dark:black bi bi-star "
-                                                viewBox="0 0 16 16">
-                                                <path
-                                                    d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                                            </svg>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <p class="text-xs dark:black ">(2 customer reviews)</p>
-                            </div>
 
                             <div class="text-gray-800 mb-6">
                                 <h1 class="text-xl mb-3">Description</h1>
@@ -135,6 +125,7 @@ $row = mysqli_fetch_assoc($result);
                                 </p>
                             </div>
                             <p class="max-w-md text-2xl mb-5 text-sky-600 dark:black">
+                                delivery charge :
                                 <?php echo $row['delcharge'] ?>
                             </p>
                             <p class="inline-block mb-8 text-4xl font-bold text-gray-700 dark:black ">
@@ -151,7 +142,7 @@ $row = mysqli_fetch_assoc($result);
                         </div>
                         <?php
                         $category = $row['category'];
-                        if ($category == "saree") {
+                        if ($category == "saree" || $category == "finnerwear" || $category == "minnerwear" || $category == "Dresses" || $category == "Rompers" || $category == "wwatch" || $category == "mwatch") {
                             ?>
                             <div class="flex items-center mb-8">
                                 <h2 class="w-16 text-xl font-bold dark:black">
@@ -159,32 +150,61 @@ $row = mysqli_fetch_assoc($result);
                                 <h4 class="text-gray-900 font-serif text-xl px-1 py-1 border border-gray-200">Free Size</h4>
                             </div>
                             <?php
-                        } elseif ($category == "kurtis") {
+                        } elseif ($category == "kurtis" || $category == "ftopwear" || $category == "mtopwear") {
                             ?>
                             <div class="flex items-center mb-8">
                                 <h2 class="w-16 text-xl font-bold dark:black">
                                     Size:</h2>
+
                                 <div class="flex flex-wrap -mx-2 -mb-2">
-                                    <button
-                                        class="py-1 mb-2 mr-1 border w-11 hover:border-blue-400 dark:border-gray-400 hover:text-blue-600 dark:hover:border-gray-300 dark:black"
-                                        value="XL">XL
-                                    </button>
-                                    <button
-                                        class="py-1 mb-2 mr-1 border w-11 hover:border-blue-400 hover:text-blue-600 dark:border-gray-400 dark:hover:border-gray-300 dark:black"
-                                        value="S">S
-                                    </button>
-                                    <button
-                                        class="py-1 mb-2 mr-1 border w-11 hover:border-blue-400 hover:text-blue-600 dark:border-gray-400 dark:hover:border-gray-300 dark:black"
-                                        value="M">M
-                                    </button>
-                                    <button
-                                        class="py-1 mb-2 mr-1 border w-11 hover:border-blue-400 hover:text-blue-600 dark:border-gray-400 dark:hover:border-gray-300 dark:black"
-                                        value="XS">XS
-                                    </button>
+                                    <form action="">
+                                        <select name="size" id="size">
+                                            <option value="XL" selected>XL</option>
+                                            <option value="S">S</option>
+                                            <option value="M">M</option>
+                                            <option value="XS">Xs</option>
+                                        </select>
+                                        <button name="click">click</button>
+                                        <input type="hidden" name="pid" value="<?php echo $row['pid'] ?>">
+                                        <input type="text" value="<?php echo $_GET['size'] ?>">
+                                    </form>
                                 </div>
                             </div>
                             <?php
-                        }
+                        } elseif ($category == "fbottomwear" || $category == "mbottomwear") { ?>
+                            <div class="flex items-center mb-8">
+                                <h2 class="w-16 text-xl font-bold dark:black">
+                                    Size:</h2>
+                                <div class="flex flex-wrap -mx-2 -mb-2">
+                                    <form action="" method="post">
+                                        <select name="size" id="size">
+                                            <option value="28">28</option>
+                                            <option value="30">30</option>
+                                            <option value="32">32</option>
+                                            <option value="34+">34+</option>
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
+
+                        <?php } elseif ($category == "women" || $category == "men") { ?>
+                            <div class="flex items-center mb-8">
+                                <h2 class="w-16 text-xl font-bold dark:black">
+                                    Size:</h2>
+                                <div class="flex flex-wrap -mx-2 -mb-2">
+                                    <form action="" method="post">
+                                        <select name="size" id="size">
+                                            <option value="IND-3">IND-3</option>
+                                            <option value="IND-4">IND-4</option>
+                                            <option value="IND-5">IND-5</option>
+                                            <option value="IND-6">IND-6</option>
+                                            <option value="IND-7">IND-7</option>
+                                            <option value="IND-8">IND-8</option>
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
+                        <?php }
                         ?>
                         <div class="text-gray-800">
                             <h1 class="text-2xl mb-3">Product Details</h1>
@@ -218,12 +238,19 @@ $row = mysqli_fetch_assoc($result);
                                 </form>
                             </div>
                             <div class="w-full px-4 mb-4 lg:mb-0 lg:w-[40%]">
-                                <button
-                                    class="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300">
-                                    <i class="fa-solid fa-angles-right mr-2"></i>
-                                    Order
-                                </button>
+                                <form action="order.php" method="">
+                                    <button
+                                        class="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300"
+                                        name="order">
+                                        <i class="fa-solid fa-angles-right mr-2"></i>
+                                        Order
+                                    </button>
+                                    <input type="hidden" name="pid" value="<?php echo $row['pid'] ?>">
+
+                                    <input type="text" name="size" value="<?php echo $_GET['size'] ?>">
+                                </form>
                             </div>
+
                         </div>
                     </div>
                 </div>

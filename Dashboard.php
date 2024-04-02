@@ -186,7 +186,7 @@
   </style>
 </head>
 
-<body>
+<body class="font-sans">
   <?php
   $conn = mysqli_connect("localhost", "root", "", "products");
   $query = "SELECT count(*) as COUNT FROM `customer`";
@@ -207,7 +207,7 @@
     <!-- component -->
     <div x-data="setup()" :class="{ 'dark': isDark }">
       <div
-        class=" flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
+        class="h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
         <!-- Header -->
         <div class="fixed w-full flex items-center justify-between h-14 text-white z-10">
           <div
@@ -259,7 +259,7 @@
               </li>
               <button name="Dashboard">
                 <li>
-                  <a href="#"
+                  <a href="Dashboard.php"
                     class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
                     <span class="inline-flex justify-center items-center ml-4">
                       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -284,6 +284,7 @@
                   </a>
                 </li>
               </button>
+              <button name="feedback">
               <li>
                 <a href="#"
                   class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
@@ -298,8 +299,10 @@
                   <span class="ml-2 text-sm tracking-wide truncate">Feedback</span>
                 </a>
               </li>
+              </button>
+              <button name="order">
               <li>
-                <a href="#"
+                <a href=""
                   class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
                   <span class="inline-flex justify-center items-center ml-4">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -312,9 +315,10 @@
                   <span class="ml-2 text-sm tracking-wide truncate">Order</span>
                 </a>
               </li>
-
+              </button>
+              <button name="customer">
               <li>
-                <a href="#"
+                <a href="Dashboard.php?customer=true"
                   class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
                   <span class="inline-flex justify-center items-center ml-4">
                     <i class="fa-solid fa-person"></i>
@@ -322,9 +326,10 @@
                   <span class="ml-2 text-sm tracking-wide truncate">Customer</span>
                 </a>
               </li>
-
+              </button>
+              <button name="addadmin">
               <li>
-                <a href="#"
+                <a href="Dashboard.php?addadmin=true"
                   class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
                   <span class="inline-flex justify-center items-center ml-4">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -336,15 +341,8 @@
                   <span class="ml-2 text-sm tracking-wide truncate">Add Admin</span>
                 </a>
               </li>
-              <li>
-                <a href="#"
-                  class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
-                  <span class="inline-flex justify-center items-center ml-4">
-                    <i class="fa-regular fa-id-card"></i>
-                  </span>
-                  <span class="ml-2 text-sm tracking-wide truncate">Profile</span>
-                </a>
-              </li>
+              </button>
+              
             </ul>
 
           </div>
@@ -353,75 +351,85 @@
 
         <!-- hide this if page changes -->
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64 overflow-x-auto">
-          <!-- Statistics Cards -->
-          <!-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
-          <div
-            class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
-            <div
-              class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
-              <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                </path>
-              </svg>
-            </div>
-            <div class="text-right">
-              <p class="text-2xl">
-                <?php echo $customer ?>
-              </p>
-              <p>Customers</p>
-            </div>
-          </div>
-          <div
-            class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
-            <div
-              class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
-              <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-              </svg>
-            </div>
-            <div class="text-right">
-              <p class="text-2xl">557</p>
-              <p>Orders</p>
-            </div>
-          </div>
-          <div
-            class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
-            <div
-              class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
-              <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-              </svg>
-            </div>
-            <div class="text-right">
-              <p class="text-2xl">
-                <?php echo $product ?>
-              </p>
-              <p>Products</p>
-            </div>
-          </div>
-          <div
-            class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
-            <div
-              class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
-              <i class="fa-regular fa-envelope text-black"></i>
-            </div>
-            <div class="text-right">
-              <p class="text-2xl">$75,257</p>
-              <p>Feedback</p>
-            </div>
-          </div>
-        </div> -->
-          <!-- ./Statistics Cards -->
-          <?php
+        <!-- ./Statistics Cards -->
+        <?php
           if (isset ($_GET['product'])) {
             include "admin_product.php";
           }
+          elseif (isset($_GET['customer'])) {
+            include "admin_customer.php";
+          }
+          elseif (isset($_GET['addadmin'])) {
+            include "admin_add_admin.php";
+          }
+          else {?>
+              <!-- Statistics Cards -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
+              <div
+                class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+                <div
+                  class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
+                  <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                    </path>
+                  </svg>
+                </div>
+                <div class="text-right">
+                  <p class="text-2xl">
+                    
+                    <?php echo $customer ?>
+                  </p>
+                  <p>Customers</p>
+                </div>
+              </div>
+              <div
+                class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+                <div
+                  class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
+                  <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                  </svg>
+                </div>
+                <div class="text-right">
+                  <p class="text-2xl">557</p>
+                  <p>Orders</p>
+                </div>
+              </div>
+              <div
+                class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+                <div
+                  class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
+                  <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                  </svg>
+                </div>
+                <div class="text-right">
+                  <p class="text-2xl">
+                    <?php echo $product ?>
+                  </p>
+                  <p>Products</p>
+                </div>
+              </div>
+              <div
+                class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+                <div
+                  class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
+                  <i class="fa-regular fa-envelope text-black"></i>
+                </div>
+                <div class="text-right">
+                  <p class="text-2xl">$75,257</p>
+                  <p>Feedback</p>
+                </div>
+              </div>
+            </div>
+            
+          <?php }
           ?>
         </div>
 

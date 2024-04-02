@@ -25,7 +25,7 @@
 </script>
 </head>
 
-<body class="font-serif">
+<body class="font-sans">
   <?php
   include "navbar.php";
   ?>

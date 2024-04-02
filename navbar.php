@@ -1,5 +1,5 @@
 <!-- navbar -->
-<div class="sticky top-0 font-serif max-w-full fixed top-0 mx-h-auto z-50 bg-gray-100 ">
+<div class="sticky top-0 font-sans max-w-full fixed top-0 mx-h-auto z-50 bg-gray-100 ">
     <nav class="border-gray-200 px-2 py-5 mb-0 border-b-[1px] border-gray-500">
         <div class="container mx-auto flex flex-wrap items-center justify-between">
             <a href="#" class="flex">
@@ -53,7 +53,7 @@
                             class="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0">About</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="serivcepage.php"
                             class="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0">Services</a>
                     </li>
                     <li>
@@ -66,11 +66,11 @@
 
             <!-- profile sub menu -->
 
-            <div class="container px-5 py-[45px] mx-auto text-gray-600 body-font z-50 hidden bg-gray-500  hidden bg-white divide-x divide-gray-100 shadow w-fit flex border border-gray-200 drop-shadow-md opacity-[95%]"
+            <div class="container px-5 py-[45px] mx-auto text-gray-600 body-font z-50 hidden bg-gray-500  hidden bg-slate-400 divide-x divide-gray-100 shadow lg:w-fit w-[30%] lg:h-fit  flex border border-gray-200 drop-shadow-md opacity-[95%]"
                 id="profile" aria-labelledby="dropdownHoverButton">
                 <div class="flex flex-wrap -m-4">
-                    <div class="xl:w-[350px] md:w-1/2 p-4">
-                        <div class="border border-gray-200 p-6 rounded-lg">
+                    <div class="xl:w-[350px] md:w-[230px] p-4">
+                        <div class="border border-gray-200 bg-slate-300 p-6 rounded-lg">
                             <div
                                 class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -79,26 +79,32 @@
                                     <circle cx="12" cy="7" r="4"></circle>
                                 </svg>
                             </div>
-                            <h2 class="text-gray-900 text-2xl mb-3">Hello User</h2>
-                            <p class="leading-relaxed text-base mb-2">To access your wear well accound</p>
+                            <h2 class="text-gray-900 lg:text-2xl text-md mb-3 font-bold">Hello User</h2>
+                            <p class="leading-relaxed text-base mb-2 font-bold">To access your wear well accound</p>
                             <?php
                             if (isset($_SESSION['cid'])) {
                                 ?>
                                 <form action="logout.php" method="post">
                                     <button type="submit"
-                                        class="text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded text-lg  w-[220px] h-[50px]  mb-3"
+                                        class="text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded text-lg  lg:w-[220px] w-[100px] lg:h-[50px] h-[30px]  mb-3"
                                         name="logout">logout</button><br>
                                 </form>
                                 <?php
                             } else { ?>
-                                <button
-                                    class="text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded text-lg  w-[220px] h-[50px]  mb-3"><a
+                            <div class="lg:flex justify-between">
+                                <button 
+                                    class="text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded lg:text-lg text-sm  lg:w-[120px] w-[80px] lg:h-[40px] h-[30px]  mb-3"><a
                                         href="signup.php">Sign
-                                        Up</a></button><br>
+                                        Up</a></button>
+                                        <button
+                                    class="text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded lg:text-lg text-sm  lg:w-[120px] w-[80px] lg:h-[40px] h-[30px]  mb-3"><a
+                                        href="login.php">login
+                                        </a></button><br>
+                                        </div>
                             <?php }
                             ?>
                             <i class="fa-solid fa-bag-shopping text-xl"></i>
-                            <a href="#" class="text-2xl">My Order</a>
+                            <a href="#" class="lg:text-2xl text-xl">My Order</a>
                         </div>
                     </div>
                 </div>
