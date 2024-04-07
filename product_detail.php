@@ -150,61 +150,8 @@ $row = mysqli_fetch_assoc($result);
                                 <h4 class="text-gray-900 font-serif text-xl px-1 py-1 border border-gray-200">Free Size</h4>
                             </div>
                             <?php
-                        } elseif ($category == "kurtis" || $category == "ftopwear" || $category == "mtopwear") {
-                            ?>
-                            <div class="flex items-center mb-8">
-                                <h2 class="w-16 text-xl font-bold dark:black">
-                                    Size:</h2>
-
-                                <div class="flex flex-wrap -mx-2 -mb-2">
-                                    <form action="">
-                                        <select name="size" id="size">
-                                            <option value="XL" selected>XL</option>
-                                            <option value="S">S</option>
-                                            <option value="M">M</option>
-                                            <option value="XS">Xs</option>
-                                        </select>
-                                        <button name="click">click</button>
-                                        <input type="hidden" name="pid" value="<?php echo $row['pid'] ?>">
-                                        <input type="text" value="<?php echo $_GET['size'] ?>">
-                                    </form>
-                                </div>
-                            </div>
-                            <?php
-                        } elseif ($category == "fbottomwear" || $category == "mbottomwear") { ?>
-                            <div class="flex items-center mb-8">
-                                <h2 class="w-16 text-xl font-bold dark:black">
-                                    Size:</h2>
-                                <div class="flex flex-wrap -mx-2 -mb-2">
-                                    <form action="" method="post">
-                                        <select name="size" id="size">
-                                            <option value="28">28</option>
-                                            <option value="30">30</option>
-                                            <option value="32">32</option>
-                                            <option value="34+">34+</option>
-                                        </select>
-                                    </form>
-                                </div>
-                            </div>
-
-                        <?php } elseif ($category == "women" || $category == "men") { ?>
-                            <div class="flex items-center mb-8">
-                                <h2 class="w-16 text-xl font-bold dark:black">
-                                    Size:</h2>
-                                <div class="flex flex-wrap -mx-2 -mb-2">
-                                    <form action="" method="post">
-                                        <select name="size" id="size">
-                                            <option value="IND-3">IND-3</option>
-                                            <option value="IND-4">IND-4</option>
-                                            <option value="IND-5">IND-5</option>
-                                            <option value="IND-6">IND-6</option>
-                                            <option value="IND-7">IND-7</option>
-                                            <option value="IND-8">IND-8</option>
-                                        </select>
-                                    </form>
-                                </div>
-                            </div>
-                        <?php }
+                        }
+                       
                         ?>
                         <div class="text-gray-800">
                             <h1 class="text-2xl mb-3">Product Details</h1>
@@ -247,7 +194,7 @@ $row = mysqli_fetch_assoc($result);
                                     </button>
                                     <input type="hidden" name="pid" value="<?php echo $row['pid'] ?>">
 
-                                    <input type="text" name="size" value="<?php echo $_GET['size'] ?>">
+                                    
                                 </form>
                             </div>
 

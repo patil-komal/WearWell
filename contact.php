@@ -1,3 +1,7 @@
+<?php
+$conn = mysqli_connect("localhost", "root", "", "products");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,10 +23,8 @@
   <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-  <script
-  type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
 </head>
 
 <body class="font-sans">
@@ -63,48 +65,28 @@
             placeholder="Leave a comment..."></textarea>
         </div>
         <button type="submit" name="sent"
-          class="py-3 px-5 text-sm font-medium text-center  rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-gray-300 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-          onclick="return sendMessage()">Send message</button>
+          class="py-3 px-5 text-sm font-medium text-center  rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-gray-300 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send
+          message</button>
       </form>
     </div>
   </section>
 
-  <!-- <form id="form">
-      <h1>contact page</h1>
-      <label for="name">Enter Name :- </label>
-      <input type="text" name="name" id="name" /><br />
-      <label for="email">Enter email :- </label>
-      <input type="email" name="email" id="email" /><br />
-      <label for="subject">Enter subject :- </label>
-      <input type="text" name="subject" id="subject" /><br />
-      <label for="message">Enter mesaage :- </label>
-      <input type="text" name="message" id="message" /><br />
-      <button type="button" onclick="sendMessage()">Send</button>
-    </form> -->
 
-  <script>
-    function sendMessage() {
-      (function () {
-        emailjs.init("W1DtM2vy9k64ImV22");
-      })();
+  <?php
+  if (isset($_POST["sent"])) {
+    $email = $_POST['email'];
+    $name = $_POST['name'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
+    $insertfeedback = "INSERT INTO `feedback`(`email`, `fname`, `subject`, `message`) VALUES ('$email','$name','$subject','$message')";
 
-      var serviceId = "service_fwikaeu";
-      var templateId = "template_ota2dbp";
-      var params = {
-        senderemail: document.querySelector("#email").value,
-        sendername: document.querySelector("#name").value,
-        subject: document.querySelector("#subject").value,
-        message: document.querySelector("#message").value,
-      };
-      emailjs
-        .send(serviceId, templateId, params)
-        .then((res) => {
-          alert("Thanks " + params["sendername"] + " your message has been sent");
-        })
-        .catch();
+    $result = mysqli_query($conn , $insertfeedback);
+    if ($result) {
+      echo "<script>alert('feedback sent successfullt')</script>";
+      header("Location:contact.php");
     }
-  </script>
-
+  }
+  ?>
   <?php
   include "footer.php";
   ?>

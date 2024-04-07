@@ -1,34 +1,14 @@
-<?php
+<?php 
 session_start();
 $conn = mysqli_connect("localhost", "root", "", "products");
 
+?>
 
-if (isset($_POST['submitorder'])) {
-  header("Location:home.php");
-}
-
-if (isset($_GET['pid'])) {
-
-  $pid = $_GET['pid'];
-
-  if (isset($_SESSION['cid'])) {
-    $cid = $_SESSION['cid'];
-    $displayorder = "SELECT p.pname , p.img , p.desprice ,p.originalpice, p.type , p.category, p.delcharge , o.oid  from product p , ordertbl o  where p.pid = '$pid'  and o.cid = '$cid'";
-    $display = mysqli_query($conn, $displayorder);
-    $row = mysqli_fetch_assoc($display);
-
-    $customerdata = "SELECT * FROM `customer` WHERE `cid` = $cid";
-    $customerresult = mysqli_query($conn, $customerdata);
-    $data = mysqli_fetch_assoc($customerresult);
-
-  }
-  ?>
-  <!DOCTYPE html>
-  <html lang="en">
-
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WearWell</title>
     <link rel="shortcut icon" href="img/logo3.png" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
@@ -44,43 +24,9 @@ if (isset($_GET['pid'])) {
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-  </head>
-
-  <body>
-    <?php
-    include "navbar2.php";
-    ?>
-    <!-- <section class="text-gray-600 body-font">
-      <div class="container px-5 py-24 mx-auto flex flex-wrap border border-gray-500">
-
-        <img src="<?php echo $row['img'] ?>" alt="" class="lg:w-[8%] w-[8%] h-[30%]">
-        <h3>
-          <?php echo $row['pname'] ?>
-        </h3>
-        <h2 class="">
-          <?php echo $row['desprice'] ?>
-        </h2>
-
-        <div class="md:w-3/5 md:pl-6">
-          <p class="leading-relaxed text-base">Taxidermy bushwick celiac master cleanse microdosing seitan. Fashion axe
-            four dollar toast truffaut, direct trade kombucha brunch williamsburg keffiyeh gastropub tousled squid meh
-            taiyaki drinking vinegar tacos.</p>
-          <div class="flex md:mt-4 mt-6">
-            <button
-              class="inline-flex text-white bg-indigo-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
-            <a class="text-indigo-500 inline-flex items-center ml-4">Learn More
-              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </section> -->
-
-    <div class="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
+</head>
+<body>
+<div class="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
       <div class="flex justify-start item-start space-y-2 flex-col">
         <h1 class="text-3xl dark:text-black lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800 text-center">
           YOUR ORDER
@@ -236,87 +182,5 @@ if (isset($_GET['pid'])) {
         </div>
       </div>
     </div>
-
-    <!-- modal -->
-
-
-
-    <!-- Modal toggle -->
-   
-
-    <!-- Main modal -->
-    <div id="default-modal" tabindex="-1" aria-hidden="true"
-      class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-      <div class="relative p-4 w-full max-w-2xl max-h-full">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-300">
-          <!-- Modal header -->
-          <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-black">
-              Order
-            </h3>
-            <button type="button"
-              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-              data-modal-hide="default-modal">
-              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-              </svg>
-              <span class="sr-only">Close modal</span>
-            </button>
-          </div>
-          <!-- Modal body -->
-          <div class="p-4 md:p-5 space-y-4">
-            <p class="text-base leading-relaxed text-gray-500 dark:text-black">
-              Order will be delivered on .. <br>
-              <?php echo $data['address']?>
-              this address .. <br>
-
-              payment method is ...<br>
-              CASH ON Delivery <br>
-
-              Confirm Order ...?
-            </p>
-            
-          </div>
-          <!-- Modal footer -->
-          <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-            <form action="" method="post">
-            <button  name="submitorder"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Confirm</button></form>
-            <button data-modal-hide="default-modal" type="button"
-              class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">cancel</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <script type="text/javascript">
-
-      load()
-      function load() {
-        // totalprice.innerText = totalprice
-
-        // // let totalprice = 0
-        let totalproductprice = document.getElementById("totalproductprice");
-        let totaldesprice = document.getElementById("totaldesprice");
-
-        let tprice = parseInt(totalproductprice.innerText.slice(1));
-        let dprice = totaldesprice.innerText;
-
-        if (dprice !== "Free") {
-          let dprice = parseInt(totaldesprice.innerText);
-          document.getElementById("totalprice").innerHTML = tprice + dprice
-        } else {
-          document.getElementById("totalprice").innerHTML = tprice
-        }
-      }
-    </script>
-  </body>
-  <?php
-}
-?>
-
+</body>
 </html>

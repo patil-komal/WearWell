@@ -1,3 +1,18 @@
+
+
+<?php
+session_start();
+ if (isset($_POST['logout'])) {
+  session_destroy();
+  header("Location:admin_login.php");
+}
+?>
+
+<?php
+  if (isset($_SESSION['aid'])) { ?>
+    
+ 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -170,7 +185,7 @@
       width: 16rem;
     }
 
-    ::-webkit-scrollbar:{
+    ::-webkit-scrollbar: {
       display: none;
     }
 
@@ -179,8 +194,12 @@
         width: calc(100% - 16rem);
       }
     }
-    table , tr ,th ,td{
-      border:1px solid white;
+
+    table,
+    tr,
+    th,
+    td {
+      border: 1px solid white;
 
     }
   </style>
@@ -198,6 +217,17 @@
   $result1 = mysqli_query($conn, $query1);
   $row1 = mysqli_fetch_assoc($result1);
   $product = $row1['COUNT'];
+
+  $query2 = "SELECT count(*) as COUNT FROM `ordertbl`";
+  $result2 = mysqli_query($conn, $query2);
+  $row2 = mysqli_fetch_assoc($result2);
+  $order = $row2['COUNT'];
+
+  $query3 = "SELECT count(*) as COUNT FROM `feedback`";
+  $result3 = mysqli_query($conn, $query3);
+  $row3 = mysqli_fetch_assoc($result3);
+  $feedback = $row3['COUNT'];
+
 
   $query2 = "select * from product";
   $result2 = mysqli_query($conn, $query2);
@@ -227,19 +257,21 @@
               <li>
                 <div class="block w-px h-6 mx-3 bg-gray-400 dark:bg-gray-700"></div>
               </li>
-              <li>
-                <a href="#" class="flex items-center mr-4 hover:text-blue-100">
-                  <span class="inline-flex mr-1">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
-                      </path>
-                    </svg>
-                  </span>
-                  Logout
-                </a>
-              </li>
+
+
+              <button class="flex items-center mr-4 hover:text-blue-100" type="submit" name="logout">
+                <span class="inline-flex mr-1">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                    </path>
+                  </svg>
+                </span>
+                Logout
+              </button>
+
+
             </ul>
           </div>
         </div>
@@ -285,86 +317,88 @@
                 </li>
               </button>
               <button name="feedback">
-              <li>
-                <a href="#"
-                  class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
-                  <span class="inline-flex justify-center items-center ml-4">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z">
-                      </path>
-                    </svg>
-                  </span>
-                  <span class="ml-2 text-sm tracking-wide truncate">Feedback</span>
-                </a>
-              </li>
+                <li>
+                  <a href="Dashboard.php?feedback=true"
+                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
+                    <span class="inline-flex justify-center items-center ml-4">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z">
+                        </path>
+                      </svg>
+                    </span>
+                    <span class="ml-2 text-sm tracking-wide truncate">Feedback</span>
+                  </a>
+                </li>
               </button>
               <button name="order">
-              <li>
-                <a href=""
-                  class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
-                  <span class="inline-flex justify-center items-center ml-4">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
-                      </path>
-                    </svg>
-                  </span>
-                  <span class="ml-2 text-sm tracking-wide truncate">Order</span>
-                </a>
-              </li>
+                <li>
+                  <a href="Dashboard.php?order=true"
+                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
+                    <span class="inline-flex justify-center items-center ml-4">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
+                        </path>
+                      </svg>
+                    </span>
+                    <span class="ml-2 text-sm tracking-wide truncate">Order</span>
+                  </a>
+                </li>
               </button>
               <button name="customer">
-              <li>
-                <a href="Dashboard.php?customer=true"
-                  class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
-                  <span class="inline-flex justify-center items-center ml-4">
-                    <i class="fa-solid fa-person"></i>
-                  </span>
-                  <span class="ml-2 text-sm tracking-wide truncate">Customer</span>
-                </a>
-              </li>
+                <li>
+                  <a href="Dashboard.php?customer=true"
+                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
+                    <span class="inline-flex justify-center items-center ml-4">
+                      <i class="fa-solid fa-person"></i>
+                    </span>
+                    <span class="ml-2 text-sm tracking-wide truncate">Customer</span>
+                  </a>
+                </li>
               </button>
               <button name="addadmin">
-              <li>
-                <a href="Dashboard.php?addadmin=true"
-                  class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
-                  <span class="inline-flex justify-center items-center ml-4">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                    </svg>
-                  </span>
-                  <span class="ml-2 text-sm tracking-wide truncate">Add Admin</span>
-                </a>
-              </li>
+                <li>
+                  <a href="Dashboard.php?addadmin=true"
+                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
+                    <span class="inline-flex justify-center items-center ml-4">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                      </svg>
+                    </span>
+                    <span class="ml-2 text-sm tracking-wide truncate">Add Admin</span>
+                  </a>
+                </li>
               </button>
-              
+
             </ul>
 
           </div>
         </div>
+        x
         <!-- ./Sidebar -->
 
         <!-- hide this if page changes -->
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64 overflow-x-auto">
-        <!-- ./Statistics Cards -->
-        <?php
-          if (isset ($_GET['product'])) {
+          <!-- ./Statistics Cards -->
+          <?php
+          if (isset($_GET['product'])) {
             include "admin_product.php";
-          }
-          elseif (isset($_GET['customer'])) {
+          } elseif (isset($_GET['customer'])) {
             include "admin_customer.php";
-          }
-          elseif (isset($_GET['addadmin'])) {
+          } elseif (isset($_GET['addadmin'])) {
             include "admin_add_admin.php";
-          }
-          else {?>
-              <!-- Statistics Cards -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
+          } elseif (isset($_GET['feedback'])) {
+            include "admin_feedback.php";
+          } elseif (isset($_GET['order'])) {
+            include "admin_order.php";
+          } else { ?>
+            <!-- Statistics Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
               <div
                 class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
                 <div
@@ -378,7 +412,7 @@
                 </div>
                 <div class="text-right">
                   <p class="text-2xl">
-                    
+
                     <?php echo $customer ?>
                   </p>
                   <p>Customers</p>
@@ -395,7 +429,9 @@
                   </svg>
                 </div>
                 <div class="text-right">
-                  <p class="text-2xl">557</p>
+                  <p class="text-2xl">
+                    <?php echo $order ?>
+                  </p>
                   <p>Orders</p>
                 </div>
               </div>
@@ -423,19 +459,198 @@
                   <i class="fa-regular fa-envelope text-black"></i>
                 </div>
                 <div class="text-right">
-                  <p class="text-2xl">$75,257</p>
+                  <p class="text-2xl">
+                    <?php echo $feedback ?>
+                  </p>
                   <p>Feedback</p>
                 </div>
               </div>
+
             </div>
-            
+
+            <!-- table  -->
+
+
+            <section id="product">
+
+              <!-- component -->
+              <div class="z-10 w-full p-4">
+                <table class="mt-4 w-full table-auto text-left shadow-lg shadow-gray-600"">
+        <thead>
+            <tr>
+                <th
+                    class=" cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-2 transition-colors
+                  hover:bg-blue-gray-50 ">
+                        <p
+                            class=" antialiased font-sans text-sm flex items-center justify-between gap-2 leading-none
+                font-bold">
+                  Product Id
+                  </p>
+                  </th>
+                  <th
+                    class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-2 transition-colors hover:bg-blue-gray-50">
+                    <p
+                      class="antialiased font-sans text-sm  flex items-center justify-between gap-2 font-bold leading-none ">
+                      Products
+                    </p>
+                  </th>
+                  <th
+                    class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-2 transition-colors hover:bg-blue-gray-50">
+                    <p
+                      class="antialiased font-sans text-sm  flex items-center justify-between gap-2 font-bold leading-none ">
+                      Product Name
+                    </p>
+                  </th>
+                  <th
+                    class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-2 transition-colors hover:bg-blue-gray-50">
+                    <p
+                      class="antialiased font-sans text-sm  flex items-center justify-between gap-2 font-bold leading-none ">
+                      Original Price
+                    </p>
+                  </th>
+                  <th
+                    class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-2 transition-colors hover:bg-blue-gray-50">
+                    <p
+                      class="antialiased font-sans text-sm  flex items-center justify-between gap-2 font-bold leading-none ">
+                      Discounted Price
+                    </p>
+                  </th>
+                  <th
+                    class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-2 transition-colors hover:bg-blue-gray-50">
+                    <p
+                      class="antialiased font-sans text-sm  flex items-center justify-between gap-2 font-bold leading-none ">
+                      Gender
+                    </p>
+                  </th>
+                  <th
+                    class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-2 transition-colors hover:bg-blue-gray-50">
+                    <p
+                      class="antialiased font-sans text-sm  flex items-center justify-between gap-2 font-bold leading-none ">
+                      Category
+                    </p>
+                  </th>
+                  <th
+                    class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-2 transition-colors hover:bg-blue-gray-50">
+                    <p
+                      class="antialiased font-sans text-sm  flex items-center justify-between gap-2 font-bold leading-none ">
+                      Type
+                    </p>
+                  </th>
+                  <th
+                    class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-2 transition-colors hover:bg-blue-gray-50">
+                    <p
+                      class="antialiased font-sans text-sm  flex items-center justify-between gap-2 font-bold leading-none ">
+                      Quantity
+                    </p>
+                  </th>
+                  <th
+                    class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-2 transition-colors hover:bg-blue-gray-50">
+                    <p
+                      class="antialiased font-sans text-sm  flex items-center justify-between gap-2 font-bold leading-none ">
+                      Delivery charge
+                    </p>
+                  </th>
+
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                    // $sql = "";
+                    if (isset($_GET['search'])) {
+                      $option = $_GET['search'];
+                      $sql = "select * from product where category like '$option'";
+                      // $result = mysqli_query($conn,$sql);
+                    } else {
+                      $sql = "select * from product where category like 'saree'";
+                    }
+                    $result = mysqli_query($conn, $sql);
+                    while ($row = mysqli_fetch_assoc($result)) { ?>
+
+                      <tr>
+                        <td class="p-4 border-b border-blue-gray-50">
+                          <div class="flex items-center gap-3">
+                            <div class="flex flex-col">
+                              <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">
+                                <?php echo $row['pid']; ?>
+                              </p>
+
+                            </div>
+                          </div>
+                        </td>
+                        <td class="p-4 border-b border-blue-gray-50">
+                          <div class="flex items-center gap-3">
+                            <img src="<?php echo $row['img'] ?>" alt="John Michael"
+                              class="inline-block relative object-cover object-center w-20 h-20 rounded-md">
+
+                          </div>
+                        </td>
+                        <td class="p-4 border-b border-blue-gray-50">
+                          <div class="flex flex-col">
+                            <p class="block antialiased font-sans text-md leading-normal text-blue-gray-900 font-normal">
+                              <?php echo $row['pname'] ?>
+                            </p>
+                          </div>
+                        </td>
+                        <td class="p-4 border-b border-blue-gray-50">
+                          <div class="flex flex-col">
+                            <p class="block antialiased font-sans text-md leading-normal text-blue-gray-900 font-normal">
+                              <?php echo $row['originalpice'] ?>
+                            </p>
+                          </div>
+                        </td>
+                        <td class="p-4 border-b border-blue-gray-50">
+                          <div class="flex flex-col">
+                            <p class="block antialiased font-sans text-md leading-normal text-blue-gray-900 font-normal">
+                              <?php echo $row['desprice'] ?>
+                            </p>
+                          </div>
+                        </td>
+                        <td class="p-4 border-b border-blue-gray-50">
+                          <div class="w-max">
+                            <p class="block antialiased font-sans text-md leading-normal text-blue-gray-900 font-normal">
+                              <?php echo $row['gender'] ?>
+                            </p>
+                          </div>
+                        </td>
+                        <td class="p-4 border-b border-blue-gray-50">
+                          <p class="block antialiased font-sans text-md leading-normal text-blue-gray-900 font-normal">
+                            <?php echo $row['category'] ?>
+                          </p>
+                        </td>
+                        <td class="p-4 border-b border-blue-gray-50">
+                          <p class="block antialiased font-sans text-md leading-normal text-blue-gray-900 font-normal">
+                            <?php echo $row['type'] ?>
+                          </p>
+                        </td>
+                        <td class="p-4 border-b border-blue-gray-50">
+                          <p class="block antialiased font-sans text-md leading-normal text-blue-gray-900 font-normal">
+                            <?php echo $row['availability'] ?>
+                          </p>
+                        </td>
+                        <td class="p-4 border-b border-blue-gray-50">
+                          <p class="block antialiased font-sans text-md leading-normal text-blue-gray-900 font-normal">
+                            <?php echo $row['delcharge'] ?>
+                          </p>
+                        </td>
+
+                      </tr>
+                    <?php }
+                    ?>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
           <?php }
           ?>
+
         </div>
 
       </div>
+
     </div>
   </form>
+
 
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -468,3 +683,10 @@
 </body>
 
 </html>
+
+<?php }
+else {
+  header("Location:admin_login.php");
+  
+}
+?>

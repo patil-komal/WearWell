@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +31,7 @@
     <?php
     $conn = mysqli_connect("localhost", "root", "", "products");
 
-    if (isset ($_POST["login"])) {
+    if (isset($_POST["login"])) {
 
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -38,6 +43,13 @@
         // verify the email address in database    
         if ($row['count'] == 1) {
             // echo "<script>alert('login successfully')</script>";
+            $email = $_POST['email'];
+            $admin = " SELECT * FROM `admin` WHERE `email` LIKE '$email'";
+            $adminresult = mysqli_query($conn, $admin);
+            $row1 = mysqli_fetch_assoc($adminresult);
+            $aid = $row1['aid'];
+            $_SESSION['aid'] = $aid;
+            // echo "<script>alert(logging successfully)</script>"
             header("Location:Dashboard.php");
         } else {
             echo "<div class='bg-gray-300 w-80 text-center absolute top-2 left-0 m-auto right-0 z-50 py-1 rounded-md' id='toaster'>Enter Valid Email and Password</div>
@@ -49,7 +61,7 @@
         }
     }
     ?>
-    
+
     <section class="min-h-screen flex items-stretch text-white -z-10">
         <div class="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center"
             style="background-image: url(img/fashion/ecommerce.jpg);">
@@ -87,7 +99,7 @@
                             in</button>
                     </div>
 
-                    
+
                 </form>
             </div>
         </div>
