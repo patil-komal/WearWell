@@ -9,8 +9,6 @@ if (isset($_SESSION['cid'])) {
     $orderquery = " SELECT   o.oid , o.pid , p.pid ,p.pname , p.img , p.desprice ,p.originalpice, p.type , p.category, p.delcharge  from ordertbl o , product p   where o.pid = p.pid and  o.cid = '$cid'";
 
     $queryresult = mysqli_query($conn,$orderquery);
-    
-
 ?>
 
 
