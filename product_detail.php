@@ -4,6 +4,7 @@ session_start();
 $conn = mysqli_connect("localhost", "root", "", "products");
 $id = $_GET['pid'];
 
+
 if (isset($_POST['addToCart'])) {
     // echo "hello";
     if (isset($_SESSION["cid"])) {
@@ -30,25 +31,16 @@ if (isset($_POST['addToCart'])) {
 if (isset($_POST['order'])) {
     if (isset($_SESSION["cid"])) {
         $cid = $_SESSION["cid"];
-        // echo "<script>alert(".$cid.")</script>"; 
-        $check = "select count(*) as COUNT from ordertbl where pid = $id AND cid = $cid";
-        $checkresult = mysqli_query($conn, $check);
-        $row = mysqli_fetch_assoc($checkresult);
-        $order = $row['COUNT'];
-        if ($order == 0) {
-            // echo "<script>alert('new data')</script>";
-            $orderquery = "INSERT INTO `ordertbl`(`cid`, `pid`) VALUES ('$cid','$id')";
-            $orderresult = mysqli_query($conn, $orderquery);
-            if ($orderresult) {
 
-                header("Location:order.php?pid=" . $id);
-            } else {
-                echo "<script>alert('some problem occcupy')</script>";
-            }
-        } else {
-
+        // echo "<script>alert('new data')</script>";
+        $orderquery = "INSERT INTO `ordertbl` (`cid`, `pid`, `status`) VALUES ('$cid', '$id', '0')";
+        $orderresult = mysqli_query($conn, $orderquery);
+        if ($orderresult) {
             header("Location:order.php?pid=" . $id);
+        } else {
+            echo "<script>alert('some problem occcupy')</script>";
         }
+
     } else {
         header("Location:login.php?pid=" . $id);
     }
@@ -151,7 +143,7 @@ $row = mysqli_fetch_assoc($result);
                             </div>
                             <?php
                         }
-                       
+
                         ?>
                         <div class="text-gray-800">
                             <h1 class="text-2xl mb-3">Product Details</h1>
@@ -185,7 +177,7 @@ $row = mysqli_fetch_assoc($result);
                                 </form>
                             </div>
                             <div class="w-full px-4 mb-4 lg:mb-0 lg:w-[40%]">
-                                <form action="order.php" method="">
+                                <form  method="post">
                                     <button
                                         class="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300"
                                         name="order">
@@ -194,7 +186,7 @@ $row = mysqli_fetch_assoc($result);
                                     </button>
                                     <input type="hidden" name="pid" value="<?php echo $row['pid'] ?>">
 
-                                    
+
                                 </form>
                             </div>
 

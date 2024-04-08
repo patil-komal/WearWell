@@ -8,7 +8,7 @@ if (isset($_SESSION['cid'])) {
     // $row = mysqli_fetch_assoc($result);
 
     if (isset($_POST['CartOrder'])) {
-        header("Location:cart_order.php?totalprice=");
+        header("Location:cart_order.php");
     }
 
     ?>
@@ -45,7 +45,7 @@ if (isset($_SESSION['cid'])) {
         <section class="flex items-center font-poppins  ">
             <div class="justify-center flex-1 px-1 py-6 mx-auto max-w-[95%] lg:py-4 md:px-6 shadow-md shadow-gray-200">
                 <h2 class="mb-10 text-4xl font-bold text-center font-serif">Your Cart</h2>
-                <form class="flex flex-wrap" method="post" 
+                <form class="flex flex-wrap" method="post" action="cart_order.php" 
                 >
                     <div class="w-full lg:w-8/12">
                         <?php
@@ -77,7 +77,7 @@ if (isset($_SESSION['cid'])) {
                                             <h4 class="mr-4 font-medium">Qty:</h4>
                                             <div
                                                 class="inline-flex items-center px-4 font-semibold  border border-gray-300 rounded-md  dark:border-gray-700">
-                                                <button
+                                                <button type="button"
                                                     class="py-2 pr-2 hover:text-gray-700"
                                                     onclick="handlePlus(event)">
                                                     +
@@ -85,7 +85,7 @@ if (isset($_SESSION['cid'])) {
                                                 <div class="product"
                                                     class="w-12 px-4 py-4 text-center  rounded-md  md:text-right placeholder-black">
                                                     1</div>
-                                                <button
+                                                <button type="button"
                                                     class="py-2 pl-2  hover:text-gray-700"
                                                     onclick="handleMinus(event)">
                                                     -
@@ -146,15 +146,17 @@ if (isset($_SESSION['cid'])) {
                                     <span id="totalDeliveryPriceDiv"></span>
                                 </span>
                             </div>
+                            
                             <div
                                 class="flex items-center justify-between px-10 py-4 mb-6 font-medium leading-8 border  dark:border-gray-800 rounded-xl">
                                 <span>Total</span>
                                 <span class="flex items-center text-xl text-blue-500 dark:text-blue-400">
                                     <span class="ml-[80%] text-base">₹</span>
                                     <input name="totalOrderPrice" id="totalOrderPrice"
-                                        class="border-none outline-none text-end w-full">
-                                    </input>
+                                        class="border-none outline-none text-end w-full"/>
+                                
                             </div>
+                            
                             <div>
                                 <button name="CartOrder" type="submit"
                                     class="inline-block w-full px-6 py-4 text-lg font-medium leading-6 tracking-tighter text-center text-white bg-blue-500 lg:w-auto hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-xl">Order</button>
@@ -166,7 +168,12 @@ if (isset($_SESSION['cid'])) {
             <!-- </div> -->
         </section>
 
-        
+        <?php 
+        if (isset($_POST['totalOrderPrice'])) {
+            
+            $total = $_POST['totalOrderPrice']; 
+        }
+        ?>
 
 
         <script type="text/javascript">
@@ -260,6 +267,7 @@ if (isset($_SESSION['cid'])) {
                 }
             }
         </script>
+        
 
         <?php 
             if (isset($_POST['delete'])) {

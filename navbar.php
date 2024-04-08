@@ -104,7 +104,7 @@
                             <?php }
                             ?>
                             <i class="fa-solid fa-bag-shopping text-xl"></i>
-                            <a href="#" class="lg:text-2xl text-xl">My Order</a>
+                            <a href="cutomer_order.php" class="lg:text-2xl text-xl">My Order</a>
                         </div>
                     </div>
                 </div>

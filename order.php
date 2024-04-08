@@ -4,6 +4,7 @@ $conn = mysqli_connect("localhost", "root", "", "products");
 
 
 if (isset($_POST['submitorder'])) {
+  echo "<script>alert('order successfully')</script>";
   header("Location:home.php");
 }
 
@@ -13,16 +14,15 @@ if (isset($_GET['pid'])) {
 
   if (isset($_SESSION['cid'])) {
     $cid = $_SESSION['cid'];
-    $displayorder = "SELECT p.pname , p.img , p.desprice ,p.originalpice, p.type , p.category, p.delcharge , o.oid  from product p , ordertbl o  where p.pid = '$pid'  and o.cid = '$cid'";
+    $displayorder = "SELECT p.pname , p.img , p.desprice ,p.originalpice, p.type , p.category, p.delcharge , o.oid ,o.cid  from product p , ordertbl o  where p.pid = '$pid'  and o.cid = '$cid'";
     $display = mysqli_query($conn, $displayorder);
     $row = mysqli_fetch_assoc($display);
 
     $customerdata = "SELECT * FROM `customer` WHERE `cid` = $cid";
     $customerresult = mysqli_query($conn, $customerdata);
-    $data = mysqli_fetch_assoc($customerresult);
+    $data = mysqli_fetch_assoc($customerresult); ?>
 
-  }
-  ?>
+ 
   <!DOCTYPE html>
   <html lang="en">
 
@@ -50,35 +50,7 @@ if (isset($_GET['pid'])) {
     <?php
     include "navbar2.php";
     ?>
-    <!-- <section class="text-gray-600 body-font">
-      <div class="container px-5 py-24 mx-auto flex flex-wrap border border-gray-500">
-
-        <img src="<?php echo $row['img'] ?>" alt="" class="lg:w-[8%] w-[8%] h-[30%]">
-        <h3>
-          <?php echo $row['pname'] ?>
-        </h3>
-        <h2 class="">
-          <?php echo $row['desprice'] ?>
-        </h2>
-
-        <div class="md:w-3/5 md:pl-6">
-          <p class="leading-relaxed text-base">Taxidermy bushwick celiac master cleanse microdosing seitan. Fashion axe
-            four dollar toast truffaut, direct trade kombucha brunch williamsburg keffiyeh gastropub tousled squid meh
-            taiyaki drinking vinegar tacos.</p>
-          <div class="flex md:mt-4 mt-6">
-            <button
-              class="inline-flex text-white bg-indigo-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
-            <a class="text-indigo-500 inline-flex items-center ml-4">Learn More
-              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </section> -->
+   
 
     <div class="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
       <div class="flex justify-start item-start space-y-2 flex-col">
@@ -315,6 +287,10 @@ if (isset($_GET['pid'])) {
       }
     </script>
   </body>
+  <?php }else {
+    header("Location:login.php");
+  }
+  ?>
   <?php
 }
 ?>
